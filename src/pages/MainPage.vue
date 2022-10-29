@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        Main
+        <ul>
+            <NoteItem />
+        </ul>
         <!-- <ul>
             <NoteItem v-for="note in notes" :item="note" :key="note.id" />
         </ul>
@@ -13,13 +15,13 @@
 // import NoteItem from '../components/note/NoteItem.vue';
 // import { useLoading } from '@/composables/useLoading';
 // import { useItem } from '@/store/itemStore';
+import NoteItem from '@/components/Note/NoteItem.vue';
 import { defineComponent } from 'vue';
 // import { storeToRefs } from 'pinia';
 
 export default defineComponent({
     components: {
-        // NoteItem,
-        // NotePagination,
+        NoteItem,
     },
     setup() {
         // const item = useItem();
