@@ -6,7 +6,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { authService } from '@/utils/fb';
+import { defineComponent, watchEffect } from 'vue';
 import NoteFooter from './components/common/NoteFooter.vue';
 
 export default defineComponent({
@@ -14,6 +15,9 @@ export default defineComponent({
         NoteFooter,
     },
     setup() {
+        watchEffect(() => {
+            authService.onAuthStateChanged(user => console.log(user));
+        });
         return {};
     },
 });
