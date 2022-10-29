@@ -1,0 +1,82 @@
+.contactInfo{
+    display: flex; margin: 5rem auto 0; width: 100rem;
+    text-align: center; font-size: 0;
+    li{
+        margin: 0 2%;
+        padding-left: 4rem; flex: 1;
+        text-align: left; color: #000;
+        &:nth-child(1){
+            background: url('@/assets/image/pin.png')no-repeat;
+        }
+        &:nth-child(2){
+            background: url('@/assets/image/tel.png')no-repeat;
+        }
+        &:nth-child(3){
+            background: url('@/assets/image/email.png')no-repeat;
+        }
+        &:nth-child(4){
+            background: url('@/assets/image/home.png')no-repeat;
+        }
+        p{
+            margin-bottom: 1rem; font-size: 1.6rem; font-weight: bold;
+        }
+        span{
+            font-size: 1.7rem;
+        }
+    }
+}
+
+
+@media all and (max-width: 1080px) {
+    .contactInfo{
+        width: 70rem; margin: 6rem auto 0;
+        li{
+            padding-left: 3rem; margin: 0 1%;
+            &:nth-child(1){
+                background-size: 2rem auto; background-position: .5rem 0;
+            }
+            &:nth-child(2){
+                background-size: 2rem auto; background-position: .5rem 0;
+            }
+            &:nth-child(3){
+                background-size: 2rem auto; background-position: .5rem 0;
+            }
+            &:nth-child(4){
+                background-size: 2rem auto; background-position: .5rem 0;
+            }
+            p{
+                margin-bottom: .5rem; font-size: 1.5rem; 
+            }
+            span{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 750px) {
+    .contactInfo{
+        width: 90%; margin: 5rem auto; flex-wrap: wrap;
+        li{
+            padding-top: 3rem; padding-left: 0; text-align: center; width: 50%; flex: none; margin: 0 0 4rem 0;
+            &:nth-child(1){
+                background-position: top center;
+            }
+            &:nth-child(2){
+                background-position: top center;
+            }
+            &:nth-child(3){
+                background-position: top center; margin-bottom: 0;
+            }
+            &:nth-child(4){
+                background-position: top center; margin-bottom: 0;
+            }
+            p{
+                margin-bottom: .7rem; font-size: 1.6rem; 
+            }
+            span{
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

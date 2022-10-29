@@ -1,0 +1,56 @@
+div{
+    @-webkit-keyframes move{
+        from{-webkit-mask-position:0 top;mask-position:0 top}
+        to{-webkit-mask-position:-150rem top;mask-position:-150rem top}
+    }
+    @keyframes move{
+        from{-webkit-mask-position:0 top;mask-position:0 top}
+        to{-webkit-mask-position:-150rem top;mask-position:-150rem top}
+    }
+    .wave{
+        height: 6rem;
+        -webkit-mask-image: url('@/assets/image/wave_mask.svg'); -webkit-mask-size: 150rem auto; -webkit-mask-position: left top; -webkit-mask-repeat: repeat-x;
+        mask-image: url('@/assets/image/wave_mask.svg'); mask-size: 150rem auto; mask-position: left top; mask-repeat: repeat-x;
+        animation: move 10s linear infinite; -webkit-animation: move 10s linear infinite;
+    }
+    .wave-bg{
+        background: #def3f7;
+    }
+    footer{
+        text-align: center; background: #def3f7;
+        .footerWrap{
+            height: 8rem;
+            h2{
+                font-size: 2rem; color: #000;
+            }
+            a{
+                img{
+                    margin-top: .5rem;
+                    width: 4rem; height: 4rem;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1080px) {
+    div{
+        .wave{
+            height: 3rem;
+        }
+        footer{
+            .footerWrap{
+                padding: 1rem 0;
+                h2{
+                    font-size: 1.6rem;
+                }
+                a{
+                    img{
+                        width: 3rem; height: 3rem;
+                    }
+                }
+            }
+        }
+        .wave{-webkit-mask-size: 50rem auto;}
+    }
+}

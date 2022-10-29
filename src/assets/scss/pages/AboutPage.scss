@@ -1,0 +1,326 @@
+.aboutWrap{
+    .mobile{
+        display: none;
+    }
+    h1{
+        padding: 5rem 0;
+        font-size: 4.5rem; color: #000; text-align: center;
+    }
+    .introWrap{
+        width: 130rem; margin: 5rem auto;  
+        display: flex; justify-content: space-around;
+        &Left{
+            img{
+                width: 100%; border-radius: 2rem; height: auto;
+            }
+        }
+        &Right{
+            .myInfo{
+                h3{
+                    padding-bottom: 2rem;
+                    font-size: 3rem; color: #222; line-height: 4rem;
+                    border-bottom: 1px solid #e5e5e5;
+                }
+                div{
+                    position: relative; border-bottom: 1px solid #e5e5e5;
+                    ul{
+                        li{
+                            margin: 2rem 0; font-size: 2rem; color: #323232;
+                            span{
+                                display: inline-block; width: 10rem; margin-right: 1rem; font-size: 2rem; font-weight: bold; color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+            .myGoal{
+                h2{
+                    padding: 2rem 0; font-size: 3rem; color: #000; 
+                }
+                p{
+                    font-size: 2rem; color: #000; line-height: 3.8rem;  
+                    .brick{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .skills{
+        padding-bottom: 10rem; text-align: center; color: #000;
+        h2{
+            padding: 3rem 0; font-size: 4rem;
+        }
+        & > div{
+            display: flex; justify-content: center;
+        }
+        .skillbox{
+            margin: 2rem 0; width: 50rem;
+            p{
+                font-size: 2rem; line-height: 3.5rem;
+            }
+            li{
+                margin-right: 1.4rem; display: inline-block; vertical-align: top; 
+                width: 6rem; height: 6rem;
+            }
+            h3{
+                font-size: 2.5rem; margin-bottom: 2rem;
+            }
+        }
+        .present{
+            ul{
+                padding-top: 2rem; font-size: 0; text-align: center;
+                .html{
+                    background: url('@/assets/image/html5.png')no-repeat; background-size:cover; 
+                }
+                .css{
+                    background: url('@/assets/image/css3.png')no-repeat; background-size:cover; 
+                }
+                .js{
+                    background: url('@/assets/image/js.png')no-repeat; background-size:cover; 
+                }
+                .vue{
+                    background: url('@/assets/image/vue.png')no-repeat; background-size:cover; 
+                }
+                // .fb{
+                //     background: url('~@/assets/image/fb.png')no-repeat; background-size:cover; 
+                // }
+            }
+        }
+        .future{
+            ul{
+                padding-top: 2rem; font-size: 0; text-align: center;
+                .python{
+                    background: url('@/assets/image/python.png')no-repeat; background-size:cover; 
+                }
+                .django{
+                    background: url('@/assets/image/django.png')no-repeat; background-size:cover; 
+                }
+                .db{
+                    background: url('@/assets/image/db.png')no-repeat; background-size:cover; 
+                }
+                .react{
+                    background: url('@/assets/image/react.png')no-repeat; background-size:cover; 
+                }
+            }
+        }
+    }   
+}
+
+@media all and (max-width: 1300px) {
+    .aboutWrap{
+        .introWrap{
+            width: 100%; margin: 6rem auto 4rem;
+            &Right{
+                display: flex; flex-direction: column; justify-content: center;
+                .myGoal{
+                    h2{
+                        padding: 1.5rem 0; font-size: 2.5rem;
+                    }
+                    p{
+                        font-size: 1.8rem; line-height: 3.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .aboutWrap{
+        .introWrap{
+            &Left{
+                img{
+                    width: auto; height: 50rem; 
+                }
+            } 
+            &Right{
+                .myInfo{
+                    h3{
+                        padding-bottom: 1.5rem;
+                        font-size: 2.5rem; line-height: 3.5rem;
+                    }
+                    div{
+                        ul{
+                            li{
+                                margin: 1.5rem 0; font-size: 1.8rem; color: #323232;
+                                span{
+                                    margin-right: 1rem; font-size: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .myGoal{
+                    h2{
+                        padding: 1.5rem 0; font-size: 2rem;
+                    }
+                    p{
+                        font-size: 1.6rem; line-height: 3.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1080px) {
+    .brick {display: block;}
+    .aboutWrap{
+        .mobile{
+            display: block;
+        }
+        h1{
+            font-size: 3.5rem; margin: 3rem 0;
+        }
+        .introWrap{
+            display: block; margin: 0 0;
+            &Left{
+                width: 50rem; margin: 0 auto;
+                img{
+                    width: 100%; height: auto; 
+                }
+            }
+            &Right{
+                width: 50rem; margin: 0 auto;
+                .myInfo{
+                    h3{
+                        padding: 2rem 0; 
+                        text-align: center;
+                    }
+                    div{
+                        display: flex; justify-content: center; border-bottom: 1px solid #e5e5e5;
+                        ul{
+                            li{
+                                margin: 1.5rem 0; font-size: 1.8rem;
+                                span{
+                                    font-size: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .myGoal{
+                    text-align: center;
+                    h2{
+                        padding: 1.5rem 0; font-size: 2.5rem; line-height: 3.5rem;
+                    }
+                    p{
+                        line-height: 3rem; font-size: 1.8rem;
+                        .brick{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .mySkill{
+            .tech{
+                h2{
+                    padding: 2rem 0; font-size: 3.5rem;
+                }
+                p{
+                    font-size: 1.8rem; line-height: 3.5rem;
+                }
+                ul{
+                    li{
+                        width: 5rem; height: 5rem;
+                    }
+                }
+            }
+        }
+        .skills{
+            padding-bottom: 5rem;
+            h2{
+                font-size: 3.5rem;
+            }
+            & > div{
+                display: flex; flex-direction: column; align-items: center;
+            }
+            .skillbox{
+                margin: 0 0 5rem 0; width: 45rem;
+                p{
+                    font-size: 1.8rem; line-height: 3.2rem;
+                }
+                li{
+                    width: 5rem; height: 5rem;
+                }
+            }
+        }    
+    }
+}
+
+@media all and (max-width: 650px) {
+    .aboutWrap{
+        .introWrap{
+            &Left{
+                width: 100%; margin: 0;
+            }
+            &Right{
+                width: 100%; margin: 0 0;
+                .myInfo{
+                    h3{
+                        padding: 1.5rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 490px) {
+    .aboutWrap{
+        h1{
+            font-size: 3rem; margin: 2rem 0;
+        }
+        .introWrap{
+            &Right{
+                .myInfo{
+                    h3{
+                        padding: 1rem 0;
+                        font-size: 2rem; line-height: 3rem;
+                    }
+                    div{
+                        ul{
+                            li{
+                                margin: 1.2rem 0; font-size: 1.6rem;
+                                span{
+                                    font-size: 1.6rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .myGoal{
+                    text-align: center;
+                    h2{
+                        padding: 1rem 0; font-size: 2rem; line-height: 3rem;
+                    }
+                    p{
+                        line-height: 2.6rem; font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .skills{
+            padding-bottom: 3rem;
+            h2{
+                padding: 2rem 0rem 0rem; font-size: 3rem;
+            }
+            .skillbox{
+                margin: 2rem 0 1rem; width: 36rem;
+                p{
+                    font-size: 1.5rem; line-height: 2.6rem;
+                }
+                li{
+                    margin-right: 1rem;
+                    width: 4rem; height: 4rem;
+                }
+                h3{
+                    font-size: 2rem; margin-bottom: 1rem
+                }
+            }
+        }   
+    }
+}
+

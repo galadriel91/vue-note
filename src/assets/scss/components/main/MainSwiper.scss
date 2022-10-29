@@ -1,0 +1,137 @@
+.swiperItemWrap{
+    overflow-x: hidden;
+    font-size: 0; text-align: center;
+    .itemWrap{
+        .brick{
+            display: none;
+        }
+        & > div{
+            display: flex; flex-direction: column; justify-content: center;
+            .itemPost{
+                position: relative; display: block; margin: 3rem auto; padding-bottom: .5rem; width: 42rem;
+                & > span{
+                    position: absolute; transition: all .8s; background: #000;
+                    &:nth-of-type(1){
+                        top: -1px; left: 1px; width: 0%; height: 2px;
+                    }
+                    &:nth-of-type(2){
+                        top: -1px; left: -1px; width: 2px; height: 0%;
+                    }
+                    &:nth-of-type(3){
+                        bottom: -1px; right: 1px; width: 0%; height: 2px;
+                    }
+                    &:nth-of-type(4){
+                        bottom: -1px; right: -1px; width: 2px; height: 0%;
+                    }
+                }
+                &:hover , &:focus{
+                    & > span{
+                        &:nth-of-type(1){
+                            width: 100%;
+                        }
+                        &:nth-of-type(2){
+                            height: 100%;
+                        }
+                        &:nth-of-type(3){
+                            width: 100%;
+                        }
+                        &:nth-of-type(4){
+                            height: 100%;
+                        }
+                    }
+                }
+                .itemImage{
+                    overflow: hidden; text-align: center;
+                    img{
+                        width: 30rem; transition: all .5s;
+                    }
+                }
+                .itemInner{
+                    padding: 1rem; box-sizing: border-box;
+                    .innerNumber{
+                        display: flex; align-items: center; justify-content: space-between;
+                        padding-top: 1rem; height: 5rem;
+                        strong{
+                            font-size: 3rem; color: #000; 
+                        }
+                        span{
+                            margin-right: 1rem; font-size: 1.5rem; font-weight: bold; color: #000;
+                        }
+                    }
+                    h3{
+                        padding: 1.5rem 0 0; font-size: 1.6rem; color: #000; text-align: left;
+                    }
+                    .checkWeb{
+                        margin: 1rem 0 .5rem; line-height: 3rem; display: flex;
+                        p{
+                            font-size: 1.6rem; font-weight: bold; color: #000; margin-right: 1.5rem;
+                        }
+                    }
+                    .skillWrap{
+                        &Info{
+                            display: flex;
+                            & > div{
+                                display: flex; align-items: center; height: 3rem;
+                            }
+                            span{
+                                font-size: 1.5rem; font-weight: bold; color: #000;
+                            }
+                            .skill{
+                                display: flex; margin-right: 1.5rem;
+                                li{
+                                    margin-left: 1rem;
+                                    &.icon{
+                                        width: 3rem; height: 3rem;
+                                    }
+                                    &.html{
+                                        background: url('@/assets/image/html5.png')no-repeat; background-size: cover ;
+                                    }
+                                    &.css{
+                                        background: url('@/assets/image/css3.png')no-repeat; background-size: cover ;
+                                    }
+                                    &.js{
+                                        background: url('@/assets/image/js.png')no-repeat; background-size: cover ;
+                                    }
+                                    &.vue{
+                                        background: url('@/assets/image/vue.png')no-repeat; background-size: cover ;
+                                    }
+                                    &.react{
+                                        background: url('@/assets/image/react.png')no-repeat; background-size: cover ;
+                                    }
+                                    &.sass{
+                                        background: url('@/assets/image/sass.png')no-repeat; background-size: cover ;
+                                    }   
+                                }
+                            }
+                            p{
+                                margin-left: 1rem;
+                                img{
+                                    margin-right: 1rem;
+                                }
+                            }
+                        }
+                    }
+                    .ratingWrap{
+                        display: flex; height: 4rem; align-items: center;
+                        span{
+                            font-size: 1.5rem; font-weight: bold; color: #000;
+                        }
+                    }
+                    .linkWrap{
+                        margin-top: .5rem; text-align: left;
+                        a{
+                            display: inline-block; padding: 0 .5rem; height: 2.8rem; background: #000; border-radius: 1rem;
+                            font-size: 1.4rem; color: #fff; text-align: center; line-height: 2.8rem; transition: all .5s; font-weight: 700;
+                            &:hover{
+                                background: #def3f7; color: #000;
+                            }
+                            &:nth-child(2){
+                                margin: 0 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.contact{
+    h1{
+        padding: 5rem 0;
+        font-size: 4.5rem; color: #000; text-align: center;
+    }
+}
+
+@media all and (max-width: 1080px) {
+    .contact{
+        h1{
+            padding: 3rem 0; font-size: 3.5rem;
+        }
+    }
+}

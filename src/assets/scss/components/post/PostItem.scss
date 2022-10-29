@@ -1,0 +1,222 @@
+ul{
+    font-size: 0;
+    li{
+        display: inline-block;
+    }
+}
+.itemWrap{
+    .brick{display: none;}
+    & > div{
+        display: flex; flex-direction: column; justify-content: center; min-height: 80vh;
+        .itemPost{
+            position: relative; display: block; margin: 3rem auto; padding-bottom: .5rem; width: 45rem;
+            & > span{
+                position: absolute; transition: all .8s; background: #000;
+                &:nth-of-type(1){
+                    top: -1px; left: 1px; width: 0%; height: 2px;
+                }
+                &:nth-of-type(2){
+                    top: -1px; left: -1px; width: 2px; height: 0%;
+                }
+                &:nth-of-type(3){
+                    bottom: -1px; right: 1px; width: 0%; height: 2px;
+                }
+                &:nth-of-type(4){
+                    bottom: -1px; right: -1px; width: 2px; height: 0%;
+                }
+            }
+            &:hover , &:focus{
+                & > span{
+                    &:nth-of-type(1){
+                        width: 100%;
+                    }
+                    &:nth-of-type(2){
+                        height: 100%;
+                    }
+                    &:nth-of-type(3){
+                        width: 100%;
+                    }
+                    &:nth-of-type(4){
+                        height: 100%;
+                    }
+                }
+            }
+            .itemImage{
+                overflow: hidden; text-align: center;
+                img{
+                    width: 30rem; transition: all .5s;
+                }
+            }
+            .itemInner{
+                padding: 1rem; box-sizing: border-box;
+                .innerNumber{
+                    display: flex; align-items: center; justify-content: space-between;
+                    padding-top: 1rem; height: 5rem;
+                    strong{
+                        font-size: 3rem; color: #000; 
+                    }
+                    span{
+                        margin-right: 1rem; font-size: 1.5rem; font-weight: bold; color: #000;
+                    }
+                }
+                h3{
+                    padding: 1.5rem 0 0; font-size: 1.6rem; color: #000;
+                }
+                .checkWeb{
+                    margin: 1rem 0 .5rem; line-height: 3rem;
+                    p{
+                        float: left; font-size: 1.6rem; font-weight: bold; color: #000; margin-right: 1.5rem;
+                    }
+                }
+                // .checkWeb p:nth-of-type(3) img{float: right;}
+                .skillWrap{
+                    &Info{
+                        display: flex;
+                        & > div{
+                            display: flex; align-items: center; height: 3rem;
+                        }
+                        span{
+                            font-size: 1.5rem; font-weight: bold; color: #000;
+                        }
+                        .skill{
+                            margin-right: 1.5rem;
+                            li{
+                                margin-left: 1rem;
+                                &.icon{
+                                    width: 3rem; height: 3rem;
+                                }
+                                &.html{
+                                    background: url('@/assets/image/html5.png')no-repeat; background-size: cover ;
+                                }
+                                &.css{
+                                    background: url('@/assets/image/css3.png')no-repeat; background-size: cover ;
+                                }
+                                &.js{
+                                    background: url('@/assets/image/js.png')no-repeat; background-size: cover ;
+                                }
+                                &.vue{
+                                    background: url('@/assets/image/vue.png')no-repeat; background-size: cover ;
+                                }
+                                &.react{
+                                    background: url('@/assets/image/react.png')no-repeat; background-size: cover ;
+                                }
+                                &.sass{
+                                    background: url('@/assets/image/sass.png')no-repeat; background-size: cover ;
+                                }   
+                                   
+                            }
+                        }
+                        p{
+                            margin-left: 1rem;
+                            img{
+                                margin-right: 1rem;
+                            }
+                        }
+                    }
+                }
+                .ratingWrap{
+                    display: flex; height: 4rem; align-items: center;
+                    span{
+                        font-size: 1.5rem; font-weight: bold; color: #000;
+                    }
+                }
+                .linkWrap{
+                    margin-top: .5rem;
+                    a{
+                        display: inline-block; padding: 0 .5rem; height: 2.8rem; background: #000; border-radius: 1rem;
+                        font-size: 1.4rem; color: #fff; text-align: center; line-height: 2.8rem; transition: all .5s; font-weight: 700;
+                        &:hover{
+                            background: #def3f7; color: #000;
+                        }
+                        &:nth-child(2){
+                            margin: 0 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media all and (max-width:770px){
+    
+    .itemWrap{
+        & > div{
+            .itemPost{
+                width: 40rem;
+                .itemInner{
+                    .checkWeb{
+                        p{
+                            margin-right: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+  @media all and (max-width:490px){
+    
+    .itemWrap{
+        & > div{
+            .itemPost{
+                width: 34rem;
+                .itemImage{
+                    img{
+                        width: 25rem;
+                    }
+                }
+                .itemInner{
+                    .checkWeb{
+                        line-height: 2.5rem;
+                        p{
+                            font-size: 1.4rem;
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .skillWrap{
+                        &Info{
+                            & > div {
+                                height: 2.5rem;
+                            }
+                            span{
+                                font-size: 1.4rem;
+                            }
+                            .skill{
+                                li{
+                                    &.icon{
+                                        width: 2.5rem; height: 2.5rem;
+                                    }
+                                }
+                            }
+                            p{
+                                img{
+                                    width: 2.5rem; height: 2.5rem;
+                                }
+                            }
+                        }
+                    }
+                    .ratingWrap{
+                        margin-top: .2rem;
+                        height: 3rem; align-items: center;
+                        span{
+                            font-size: 1.4rem;
+                        }
+                    }
+                    .linkWrap{
+                        a{
+                            padding: 0 .5rem; 
+                            font-size: 1.2rem; 
+                            
+                        }
+                    }
+                } 
+            }
+        }
+    }
+} 

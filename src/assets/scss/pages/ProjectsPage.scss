@@ -1,0 +1,27 @@
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.projects{
+    margin: 0 auto; display: flex; flex-direction: column; justify-content: center; width: 95%; min-height: calc(100vh - 22rem);
+    &Title{
+        text-align: center; color: #000;
+        h2{
+            font-size: 4.5rem;
+        }
+    }
+}
+@media all and (max-width:1080px){
+    .projects{
+        min-height: calc(100vh - 20rem);
+        &Title{
+            h2{
+                font-size: 3.5rem;
+            }
+        }
+    }
+}

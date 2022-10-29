@@ -1,0 +1,91 @@
+main{
+    .brick{
+        display: none;
+    }
+    .mobile{
+        display: none;
+    }
+    .mainIntro{
+        text-align: center; margin-bottom: 4rem;
+        h2{
+            padding-bottom: 2rem; font-size: 3.4rem; color: #000;
+        }
+        p{
+            font-size: 2rem; line-height: 5rem; color: #000;
+        }
+    }
+    .mainProductWrap{
+        padding: 0 0 3rem 0; 
+        text-align: center;
+        h2{
+            letter-spacing: 1px;
+            font-size: 3.4rem; color: #000; font-weight: bold;
+        }
+    }
+}
+
+@media all and (max-width:1080px){
+    main{
+        .mainIntro{
+            h2{
+                padding-bottom: 1.5rem; font-size: 3rem; 
+            }
+            p{
+                font-size: 1.8rem; line-height: 4rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width:880px){
+    main{
+        .mainIntro{
+            h2{
+                padding-bottom: 1rem; font-size: 2.5rem;
+            }
+            p{
+                font-size: 1.6rem; line-height: 3rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width:770px){
+    main{
+        .brick{
+            display: block;
+        }
+        .mainIntro{
+            padding-bottom: 2rem; 
+            h2{
+                line-height: 3.5rem;
+            }
+            p{
+                font-size: 1.8rem; line-height: 3rem;
+            }
+        }
+        .mainProductWrap{
+            padding: 0 0 1rem 0; 
+            h2{
+                padding-bottom: 1rem; 
+                font-size: 2.8rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width:490px){
+    main{
+        .mobile{
+            display: block;
+        }
+        .mainIntro{
+            h2{
+                font-size: 2rem; line-height: 3rem;
+            }
+            p{
+                line-height: 2.6rem; font-size: 1.5rem;
+            }
+        }
+    }
+}

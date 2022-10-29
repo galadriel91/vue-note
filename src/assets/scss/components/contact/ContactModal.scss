@@ -1,0 +1,20 @@
+.alertContainer{
+    position: fixed; left: 0; top: 0; z-index: 1000;
+    width: 100vw; height: 100vh; background: rgba(0,0,0,.6);
+    .buttonWrap{
+        position: absolute; left: 50%; top: 50%; transform: translate(-50% , -50%); z-index: 50;
+        display: flex; flex-direction: column; justify-content: center;
+        width: 30rem; height: 10rem; text-align: center; border-radius: 1rem;
+        background: #fff; 
+        h2{
+            font-size: 2rem; color: #000;
+        }
+        button{
+            margin-top: 1.5rem; 
+            font-size: 2.5rem; font-weight: bold; color: crimson; background: none; cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}

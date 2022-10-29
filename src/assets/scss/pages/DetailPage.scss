@@ -1,0 +1,10 @@
+.container{
+    display: flex; width: 100%; height: calc(100vh - 22rem);
+    justify-content: center; align-items: center;
+}
+
+@media all and (max-width:1080px){
+    .container{
+        height: calc(100vh - 18rem);
+    }
+}

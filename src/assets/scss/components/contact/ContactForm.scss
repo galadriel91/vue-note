@@ -1,0 +1,93 @@
+.contactForm{
+    width: 100rem; margin: 5rem auto 8rem;
+    form{
+        div{
+            display: inline-block; vertical-align: top; width: 45%;
+            margin: 2rem 2%;
+            label{
+                text-align: left;
+                display: block; margin-bottom: 2rem;
+                font-size: 2rem; font-weight: bold; color: #000;
+                &.failCheck{
+                    color: crimson;
+                }
+            }
+            input{
+                width: 100%; height: 5rem; border: 1px solid #ddd; font-size: 1.5rem; text-indent: 1rem; font-family: 'ChosunSg';
+                border-bottom: 2px solid #777;
+                font-size: 1.5rem; font-weight: normal; color: #000;
+                &::placeholder{
+                    color: #000;
+                }
+            }
+        }
+        .inputContentWrap{
+            width: 94%;
+            textarea{
+                padding: 2rem 0; width: 100%; height:15rem; 
+                border: 1px solid #ddd; border-bottom: 2px solid #777; resize: none;
+                font-family: 'ChosunSg'; text-indent: 1rem;
+                box-sizing: border-box; 
+                font-size: 1.5rem; font-weight: normal; color: #000;
+                &::placeholder{
+                    color: #000;
+                }
+            }
+        }
+        button{
+            margin: 3.5rem 2% 0;width: 94%; height: 6rem;
+            border: 1px solid #ddd; border-bottom: 2px solid #777; background: none;
+            font-size: 1.7rem; font-weight: bold; color: #000; font-family: 'ChosunSg';
+            cursor: pointer; transition: all .5s; 
+            &:hover{
+                background: #eee;
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 1080px) {
+    .contactForm{
+        width: 70rem;
+        form{
+            div{
+                margin: 1.5rem 2%;
+                label{
+                    margin-bottom: 1.5rem;
+                    font-size: 1.8rem; font-weight: bold; color: #000;
+                }
+            }
+            button{
+                margin: 2.5rem 2%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 750px) {
+    .contactForm{
+        width: 90%; margin: 5rem auto;
+        form{
+            div{
+                width: 100%; box-sizing: border-box; margin: 1.5rem 0;
+                label{
+                    font-size: 1.6rem; margin-bottom: 1.5rem;
+                }
+                input{
+                    width: 100%; height: 4rem;
+                }
+            }
+            .inputContentWrap{
+                width: 100%;
+                textarea{
+                    height:12rem; 
+                }
+            }
+            button{
+               width: 100%; font-size: 1.6rem; height: 5rem;
+               margin: 2rem 0;
+            }
+        }
+    }
+}
