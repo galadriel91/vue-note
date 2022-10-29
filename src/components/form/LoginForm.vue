@@ -31,13 +31,26 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { authService } from '@/utils/fb';
+import { useUser } from '@/store/userStore';
 
 export default defineComponent({
     setup() {
+        const user = useUser();
+        const { SET_USER } = user;
         const email = ref('');
         const password = ref('');
-        const onSubmitForm = () => {
-            console.log(1);
+        const onSubmitForm = async () => {
+            try {
+                await authService.signInWithEmailAndPassword(
+                    email.value,
+                    password.value,
+                );
+                console.log(authService.currentUser);
+                SET_USER(authService.currentUser);
+            } catch (err) {
+                console.error(err);
+            }
         };
         const onSocialClick = () => {
             console.log(1);

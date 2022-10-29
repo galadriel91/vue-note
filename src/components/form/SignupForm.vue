@@ -39,15 +39,27 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
+import { authService } from '@/utils/fb';
+import { useUser } from '@/store/userStore';
 
 export default defineComponent({
     setup() {
+        const user = useUser();
+        const { SET_USER } = user;
         const inputFocus = ref<HTMLInputElement | null>(null);
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
-        const onSubmitForm = () => {
-            console.log(1);
+        const onSubmitForm = async () => {
+            try {
+                await authService.createUserWithEmailAndPassword(
+                    email.value,
+                    password.value,
+                );
+                SET_USER(authService.currentUser);
+            } catch (err) {
+                console.error(err);
+            }
         };
         onMounted(() => {
             inputFocus.value?.focus();

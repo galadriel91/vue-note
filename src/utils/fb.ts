@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
 // 파이어 스토어 연결
 
 // Your web app's Firebase configuration
@@ -11,4 +12,5 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_APP_APP_ID,
 };
 
-export const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+export const authService = firebase.auth();
