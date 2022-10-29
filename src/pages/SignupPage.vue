@@ -1,17 +1,16 @@
 <template>
     <div class="container">
-        회원가입
-        <!-- <SignupForm /> -->
+        <SignupForm />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-// import SignupForm from '../components/form/SignupForm.vue';
+import SignupForm from '../components/form/SignupForm.vue';
 
 export default defineComponent({
     components: {
-        // SignupForm,
+        SignupForm,
     },
 });
 </script>
