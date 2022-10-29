@@ -20,7 +20,7 @@
         </form>
         <button class="googleBtn" @click="onSocialClick">
             <img src="@/assets/images/google.png" alt="" />
-            Google 계정으로 로그인
+            Google 계정으로 시작하기
         </button>
         <div class="btnWrap">
             <span>계정이 없으신가요?</span>
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { authService } from '@/utils/fb';
+import { authService, firebaseInstance } from '@/utils/fb';
 import { useUser } from '@/store/userStore';
 
 export default defineComponent({
@@ -52,8 +52,14 @@ export default defineComponent({
                 console.error(err);
             }
         };
-        const onSocialClick = () => {
-            console.log(1);
+        const onSocialClick = async () => {
+            try {
+                const provider = new firebaseInstance.auth.GoogleAuthProvider();
+                const data = await authService.signInWithPopup(provider);
+                console.log(data);
+            } catch (err) {
+                console.error(err);
+            }
         };
         return {
             email,

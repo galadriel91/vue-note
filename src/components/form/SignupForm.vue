@@ -26,7 +26,7 @@
             </div>
             <button type="submit">회원가입</button>
         </form>
-        <button class="googleBtn">
+        <button class="googleBtn" @click="onClickGoogle">
             <img src="@/assets/images/google.png" alt="" />Google 계정으로
             회원가입
         </button>
@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
-import { authService } from '@/utils/fb';
+import { authService, firebaseInstance } from '@/utils/fb';
 import { useUser } from '@/store/userStore';
 
 export default defineComponent({
@@ -61,6 +61,15 @@ export default defineComponent({
                 console.error(err);
             }
         };
+        const onClickGoogle = async () => {
+            try {
+                const provider = new firebaseInstance.auth.GoogleAuthProvider();
+                const data = await authService.signInWithPopup(provider);
+                console.log(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
         onMounted(() => {
             inputFocus.value?.focus();
         });
@@ -69,6 +78,7 @@ export default defineComponent({
             password,
             nickname,
             onSubmitForm,
+            onClickGoogle,
             inputFocus,
         };
     },
