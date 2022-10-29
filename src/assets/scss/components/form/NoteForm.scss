@@ -1,0 +1,54 @@
+.inputWrap{
+    padding: 2.5rem 0;
+    background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
+    border-radius: .5rem;
+    form{
+        .formWrap{
+            padding: 0 2.4rem 2rem;
+            label{
+                font-size: 1.4rem; color: #222;
+            }
+            input{
+                margin-top: 1rem; margin-bottom: 2rem;
+                width: 100%; padding: 1rem; box-sizing: border-box;
+                border: 1px solid #dee2e6; border-radius: .5rem;
+                font-size: 1.4rem; color: #000; 
+                &:focus{
+                    outline: none;
+                    border-color: #42b883;
+                }
+                &::placeholder{
+                    color: #929292; 
+                }
+            }
+            textarea{
+                margin-top: 1rem;
+                width: 100%; min-height: 10em; padding: 1rem; box-sizing: border-box;
+                border: 1px solid #dee2e6; border-radius: .5rem; color: #000;
+                font-size: 1.4rem; line-height: 2.6rem; overflow: hidden; 
+                resize: none;
+                &::placeholder{
+                    color: #929292; 
+                }
+                &:focus{
+                    outline: none;
+                    border-color: #42b883;
+                }
+            }
+        }
+        .buttonWrap{
+            padding: 0 2.4rem; display: flex; justify-content: flex-end;
+            button{
+                display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
+                font-size: 1.4rem; cursor: pointer;
+                &:nth-child(1){
+                    margin-right: 1rem;
+                    background: none; border: 1px solid #dee2e6;
+                }
+                &:nth-child(2){
+                    background: #42b883; color: #fff;
+                }
+            }
+        }
+    }
+}
