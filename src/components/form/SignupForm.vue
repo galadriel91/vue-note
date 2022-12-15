@@ -34,14 +34,23 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { useUser } from '@/store/userStore';
 
 export default defineComponent({
     setup() {
+        const user = useUser();
+        const { FETCH_SIGNUP } = user;
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
+
         const onSubmitForm = () => {
-            console.log(1);
+            const info = {
+                username: email.value,
+                password: password.value,
+                nickname: nickname.value,
+            };
+            FETCH_SIGNUP(info);
         };
         return {
             email,
