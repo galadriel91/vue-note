@@ -6,5 +6,5 @@ const instance = axios.create({
 });
 
 export const fetchSignUp = (info: SignUp) => {
-    return instance.post('/singup', info);
+    return instance.post('/signup', info);
 };
