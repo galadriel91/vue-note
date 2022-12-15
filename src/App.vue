@@ -1,5 +1,9 @@
 <template>
-    <div>App</div>
+    <div>
+        <div>
+            <RouterView :key="$route.path" />
+        </div>
+    </div>
 </template>
 
 <script lang="ts">

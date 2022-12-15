@@ -1,17 +1,20 @@
 <template>
-    <div>Login</div>
+    <div class="container">
+        <LoginForm />
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import LoginForm from '../components/form/LoginForm.vue';
 
 export default defineComponent({
-    setup() {
-        return {};
+    components: {
+        LoginForm,
     },
 });
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/pages/LoginPage.scss';
+@import '@/assets/scss/pages/LoginPage';
 </style>
