@@ -4,6 +4,11 @@ export default [
         redirect: '/404',
     },
     {
+        path: '/404',
+        component: () => import('@/pages/NotPage.vue'),
+        meta: { title: 'Error Page', search: false, header: false },
+    },
+    {
         path: '/',
         redirect: '/login',
     },
