@@ -8,6 +8,7 @@
                     placeholder="이메일을 입력해 주세요"
                     v-model="email"
                     @focus="onClickFocus"
+                    :class="{ valid: isValid }"
                 />
             </div>
             <div>
@@ -15,6 +16,7 @@
                     type="password"
                     placeholder="비밀번호를 입력해 주세요"
                     v-model="password"
+                    :class="{ valid: password.length >= 6 }"
                 />
             </div>
             <button type="submit">로그인</button>
@@ -31,6 +33,7 @@
 import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
+import { useValid } from '@/composables/useValid';
 
 export default defineComponent({
     setup() {
@@ -47,16 +50,9 @@ export default defineComponent({
             if (email.value === '') {
                 return false;
             } else {
-                return checkValidateEmail(email.value);
+                return useValid(email.value);
             }
         });
-
-        // 이메일 확인
-        const checkValidateEmail = (email: string) => {
-            const re =
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
-        };
 
         const onSubmitForm = () => {
             const valueArray = [email.value, password.value];
@@ -93,6 +89,7 @@ export default defineComponent({
             password,
             onSubmitForm,
             isError,
+            isValid,
             onClickFocus,
         };
     },

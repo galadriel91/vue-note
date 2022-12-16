@@ -41,6 +41,7 @@
 import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
+import { useValid } from '@/composables/useValid';
 
 export default defineComponent({
     setup() {
@@ -56,15 +57,9 @@ export default defineComponent({
             if (email.value === '') {
                 return false;
             } else {
-                return checkValidateEmail(email.value);
+                return useValid(email.value);
             }
         });
-
-        const checkValidateEmail = (email: string) => {
-            const re =
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
-        };
 
         const onSubmitForm = () => {
             const valueArray = [email.value, password.value, nickname.value];
