@@ -7,6 +7,8 @@
                     type="text"
                     placeholder="이메일을 입력해 주세요"
                     v-model="email"
+                    :class="{ valid: isValid }"
+                    @focus="onClickFocus"
                 />
             </div>
             <div>
@@ -14,6 +16,7 @@
                     type="text"
                     placeholder="비밀번호를 입력해 주세요"
                     v-model="password"
+                    :class="{ valid: password.length >= 6 }"
                 />
             </div>
             <div>
@@ -21,10 +24,12 @@
                     type="text"
                     placeholder="닉네임을 입력해 주세요"
                     v-model="nickname"
+                    :class="{ valid: nickname.length }"
                 />
             </div>
             <button type="submit">회원가입</button>
         </form>
+        <div class="handleError" v-if="isError">{{ isError }}</div>
         <div class="btnWrap">
             <span>이미 계정이 있으신가요?</span>
             <RouterLink to="/login" class="newBtn">로그인</RouterLink>
@@ -33,30 +38,74 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
+import { storeToRefs } from 'pinia';
 
 export default defineComponent({
     setup() {
         const user = useUser();
+        const { isError } = storeToRefs(user);
         const { FETCH_SIGNUP } = user;
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
 
-        const onSubmitForm = () => {
-            const info = {
-                username: email.value,
-                password: password.value,
-                nickname: nickname.value,
-            };
-            FETCH_SIGNUP(info);
+        const isCheck = ref(true);
+        const isValid: ComputedRef<boolean> = computed(() => {
+            if (email.value === '') {
+                return false;
+            } else {
+                return checkValidateEmail(email.value);
+            }
+        });
+
+        const checkValidateEmail = (email: string) => {
+            const re =
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
         };
+
+        const onSubmitForm = () => {
+            const valueArray = [email.value, password.value, nickname.value];
+            valueArray.forEach(v => {
+                if (v === '') {
+                    isCheck.value = false;
+                }
+            });
+            if (isCheck.value && isValid.value) {
+                const info = {
+                    username: email.value,
+                    password: password.value,
+                    nickname: nickname.value,
+                };
+                FETCH_SIGNUP(info);
+                initForm();
+            } else {
+                alert('다시 한번 확인 해주세요');
+            }
+        };
+
+        const initForm = () => {
+            email.value = '';
+            password.value = '';
+            nickname.value = '';
+        };
+
+        const onClickFocus = () => {
+            if (isError) {
+                isError.value = '';
+            }
+        };
+
         return {
             email,
             password,
             nickname,
             onSubmitForm,
+            isValid,
+            isError,
+            onClickFocus,
         };
     },
 });

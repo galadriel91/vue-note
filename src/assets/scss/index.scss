@@ -20,4 +20,6 @@ textarea , input{
     font-family: 'ChosunGu';
 }
 
-
+input:focus{
+    outline: none;
+}
