@@ -10,7 +10,7 @@ export default [
     },
     {
         path: '/',
-        redirect: '/login',
+        redirect: '/main',
     },
     {
         path: '/login',
@@ -21,5 +21,12 @@ export default [
         path: '/signup',
         component: () => import('@/pages/SignupPage.vue'),
         meta: { title: 'Signup Page', search: false, header: false },
+    },
+    {
+        path: '/main',
+        name: 'main',
+        component: () => import('@/pages/MainPage.vue'),
+        // beforeEnter: getPage(),
+        meta: { title: 'Main Page', search: true, header: true },
     },
 ];
