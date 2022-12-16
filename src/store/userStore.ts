@@ -13,8 +13,12 @@ export const useUser = defineStore('user', {
                 const data = await fetchSignUp(info);
                 console.log(data);
             } catch (err: any) {
-                this.isError = '이메일이 존재하여 회원 가입이 실패했습니다';
-                console.log(err.response.status);
+                if (err.response.status === 409) {
+                    this.isError = '이메일이 존재하여 회원 가입이 실패했습니다';
+                } else {
+                    this.isError =
+                        '서버에 문제가 있어 회원가입하지 못했습니다.';
+                }
             }
         },
         async FETCH_LOGIN(info: Login) {
@@ -22,8 +26,11 @@ export const useUser = defineStore('user', {
                 const data = await fetchLogin(info);
                 console.log(data);
             } catch (err: any) {
-                this.isError = '이메일이나 비밀번호를 다시 확인해주세요';
-                console.log(err.response.status);
+                if (err.response.status === 401) {
+                    this.isError = '이메일이나 비밀번호를 다시 확인해주세요';
+                } else {
+                    this.isError = '서버에 문제가 있어 로그인하지 못했습니다.';
+                }
             }
         },
     },
