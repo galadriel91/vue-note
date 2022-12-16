@@ -4,4 +4,9 @@ interface SignUp {
     nickname: string;
 }
 
-export { type SignUp };
+interface Login {
+    username: string;
+    password: string;
+}
+
+export { type SignUp, type Login };
