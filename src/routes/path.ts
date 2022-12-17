@@ -1,3 +1,5 @@
+import { getPage } from './guard';
+
 export default [
     {
         path: '/:pathMatch(.*)',
@@ -26,7 +28,7 @@ export default [
         path: '/main',
         name: 'main',
         component: () => import('@/pages/MainPage.vue'),
-        // beforeEnter: getPage(),
+        beforeEnter: getPage(),
         meta: { title: 'Main Page', search: true, header: true },
     },
     {

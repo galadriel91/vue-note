@@ -9,7 +9,7 @@ export const usePost = defineStore('items', {
     actions: {
         async FETCH_NOTE() {
             const { data } = await fetchNote();
-            this.posts = data;
+            this.posts = data.posts;
         },
         async ADD_NOTE(note: PostItem) {
             const { data } = await addNote(note);

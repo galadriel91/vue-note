@@ -1,15 +1,20 @@
 <template>
     <div class="container">
         <ul>
-            <NoteItem />
+            <NoteItem
+                v-for="(post, index) in posts"
+                :item="post"
+                :key="index"
+            />
         </ul>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import NoteItem from '@/components/note/NoteItem.vue';
 import { usePost } from '@/store/postStore';
+import { storeToRefs } from 'pinia';
+import NoteItem from '@/components/note/NoteItem.vue';
 
 export default defineComponent({
     components: {
@@ -17,9 +22,10 @@ export default defineComponent({
     },
     setup() {
         const post = usePost();
-        const { FETCH_NOTE } = post;
-        FETCH_NOTE();
-        return {};
+        const { posts } = storeToRefs(post);
+        return {
+            posts,
+        };
     },
 });
 </script>

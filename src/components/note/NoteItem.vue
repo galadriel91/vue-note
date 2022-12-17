@@ -1,13 +1,11 @@
 <template>
     <li class="noteItem">
         <div class="contentWrap" @click="onClickItemPage">
-            <!-- <h3 class="contentWrapTitle">{{ item.title }}</h3> -->
-            <h3 class="contentWrapTitle">노트 아이템 예시 입니다</h3>
+            <h3 class="contentWrapTitle">{{ item.title }}</h3>
             <div class="contentWrapContent">
-                <!-- <p>
-                    {{ item.content }}
-                </p> -->
-                <p>월드컵 우승은 아마도 프랑스가 할것 같습니다</p>
+                <p>
+                    {{ item.contents }}
+                </p>
             </div>
         </div>
         <div class="contentInfoWrap">
@@ -29,12 +27,19 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
+import type { PostItem } from '@/store/types';
 // import type { NoteItems } from '@/store/types';
 // import { useDate } from '@/composables/useDate';
 // import { useItem } from '@/store/itemStore';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
+    props: {
+        item: {
+            type: Object as PropType<PostItem>,
+            required: true,
+        },
+    },
     setup() {
         const router = useRouter();
         // const item = useItem();
