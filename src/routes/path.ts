@@ -29,4 +29,10 @@ export default [
         // beforeEnter: getPage(),
         meta: { title: 'Main Page', search: true, header: true },
     },
+    {
+        path: '/create',
+        name: 'create',
+        component: () => import('@/pages/CreatePage.vue'),
+        meta: { title: 'Create Page', search: false, header: true },
+    },
 ];
