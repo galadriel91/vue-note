@@ -9,4 +9,9 @@ interface Login {
     password: string;
 }
 
-export { type SignUp, type Login };
+interface PostItem {
+    title: string;
+    contents: string;
+}
+
+export { type SignUp, type Login, type PostItem };

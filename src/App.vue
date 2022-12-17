@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <NoteHeader v-if="isHeader" /> -->
+        <NoteHeader v-if="isHeader" />
         <div class="pageWrap">
             <RouterView :key="$route.path" />
         </div>
@@ -13,14 +13,14 @@
 import { defineComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import NoteFooter from './components/common/NoteFooter.vue';
-// import NoteHeader from './components/common/NoteHeader.vue';
+import NoteHeader from './components/common/NoteHeader.vue';
 import NoteLoading from './components/common/NoteLoading.vue';
 
 export default defineComponent({
     components: {
         NoteFooter,
         NoteLoading,
-        // NoteHeader,
+        NoteHeader,
     },
     setup() {
         const route = useRoute();

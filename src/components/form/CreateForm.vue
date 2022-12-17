@@ -31,33 +31,29 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
-// import { useItem } from '@/store/itemStore';
+import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
     setup() {
         const router = useRouter();
-        // const item = useItem();
-        // const { ADD_NOTES } = item;
+        const post = usePost();
+        const { ADD_NOTE } = post;
 
         const title = ref('');
         const titleInput = ref<HTMLInputElement>();
         const content = ref('');
 
         const onSubmitForm = async () => {
-            // if (title.value.length && content.value.length) {
-            //     await ADD_NOTES({
-            //         id: '',
-            //         index: Date.now(),
-            //         title: title.value,
-            //         content: content.value,
-            //         date: new Date(),
-            //         update: false,
-            //     });
-            //     onClickMain();
-            // } else {
-            //     alert('다시 한번 확인해 주세요');
-            // }
+            if (title.value.length && content.value.length) {
+                await ADD_NOTE({
+                    title: title.value,
+                    contents: content.value,
+                });
+                onClickMain();
+            } else {
+                alert('다시 한번 확인해 주세요');
+            }
         };
 
         const onClickMain = () => {

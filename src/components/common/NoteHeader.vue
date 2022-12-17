@@ -6,7 +6,9 @@
                 <nav :class="{ showing: isActive }">
                     <ul id="menu">
                         <li data-menuanchor="home" @click="onClickRemove">
-                            <a href="#home"><span>Create</span></a>
+                            <RouterLink to="/create"
+                                ><span>Create</span></RouterLink
+                            >
                         </li>
                         <li data-menuanchor="about" @click="onClickRemove">
                             <a href="#about"><span>Logout</span></a>
