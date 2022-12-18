@@ -14,6 +14,7 @@
 import { defineComponent } from 'vue';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
+import { useLoading } from '@/composables/useLoading';
 import NoteItem from '@/components/note/NoteItem.vue';
 
 export default defineComponent({
@@ -23,6 +24,7 @@ export default defineComponent({
     setup() {
         const post = usePost();
         const { posts } = storeToRefs(post);
+        useLoading();
         return {
             posts,
         };
