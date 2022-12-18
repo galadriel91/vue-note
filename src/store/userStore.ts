@@ -1,11 +1,17 @@
 import { defineStore } from 'pinia';
 import { fetchSignUp, fetchLogin } from '@/api/index';
 import type { SignUp, Login } from './types';
+import {
+    getAuthFromCookie,
+    getUserFromCookie,
+    saveAuthToCookie,
+    saveUserToCookie,
+} from '@/utils/cookie';
 
 export const useUser = defineStore('user', {
     state: () => ({
-        user: {},
-        token: '',
+        user: getUserFromCookie() || {},
+        token: getAuthFromCookie() || '',
         isError: '',
     }),
     actions: {
@@ -13,6 +19,7 @@ export const useUser = defineStore('user', {
             try {
                 const { data } = await fetchSignUp(info);
                 this.token = data.token;
+                saveAuthToCookie(data.token);
                 this.router.push('/main');
             } catch (err: any) {
                 if (err.response.status === 409) {
@@ -27,6 +34,7 @@ export const useUser = defineStore('user', {
             try {
                 const { data } = await fetchLogin(info);
                 this.token = data.token;
+                saveAuthToCookie(data.token);
                 this.router.push('/main');
             } catch (err: any) {
                 if (err.response.status === 401) {

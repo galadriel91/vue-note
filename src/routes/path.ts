@@ -12,7 +12,7 @@ export default [
     },
     {
         path: '/',
-        redirect: '/login',
+        redirect: '/main',
     },
     {
         path: '/login',
