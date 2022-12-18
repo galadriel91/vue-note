@@ -1,8 +1,8 @@
 .noteItem{
     position: relative;
-    width: 100%; margin: 0 auto; height: 15rem;
-    border-radius: .5rem; margin-bottom: 2rem; padding: 2.4rem; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
-    background: #fff; 
+    height: 15rem; margin-bottom: 2rem; padding: 2rem; 
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem; 
+    background: #fafafa; 
     button{
         cursor: pointer; background: none;
     }
@@ -27,6 +27,7 @@
         }
     }
     .contentInfoWrap{
+        border-top: 1px solid #ddd;
         width: 100%; display: flex; justify-content: space-between; align-items: center;
         margin-top: 1.5rem; padding: 0 1rem; box-sizing: border-box;
         .dateWrap{

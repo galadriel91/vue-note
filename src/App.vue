@@ -1,10 +1,10 @@
 <template>
     <div>
-        <NoteHeader v-if="isHeader" />
+        <!-- <NoteHeader v-if="isHeader" /> -->
         <div class="container">
             <RouterView :key="$route.path" />
         </div>
-        <NoteFooter />
+        <!-- <NoteFooter /> -->
         <NoteLoading />
     </div>
 </template>

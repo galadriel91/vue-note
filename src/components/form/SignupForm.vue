@@ -3,26 +3,29 @@
         <img src="@/assets/images/gondor.png" alt="" />
         <form @submit.prevent="onSubmitForm">
             <div>
+                <i class="xi-mail"></i>
                 <input
                     type="text"
-                    placeholder="이메일을 입력해 주세요"
+                    placeholder="이메일"
                     v-model="email"
                     :class="{ valid: isValid }"
                     @focus="onClickFocus"
                 />
             </div>
             <div>
+                <i class="xi-lock"></i>
                 <input
                     type="text"
-                    placeholder="비밀번호를 입력해 주세요"
+                    placeholder="비밀번호"
                     v-model="password"
                     :class="{ valid: password.length >= 6 }"
                 />
             </div>
             <div>
+                <i class="xi-user"></i>
                 <input
                     type="text"
-                    placeholder="닉네임을 입력해 주세요"
+                    placeholder="닉네임"
                     v-model="nickname"
                     :class="{ valid: nickname.length }"
                 />

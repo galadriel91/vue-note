@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    font-family: 'ChosunGu'; font-size: 1rem; background: #eee;
+    font-family: 'ChosunGu'; font-size: 1rem; background: #eaeef6;
     box-sizing: border-box; 
 }
 
@@ -22,4 +22,15 @@ textarea , input{
 
 input:focus{
     outline: none;
+}
+
+.container{
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    min-height: calc(100vh - 12rem); 
+}
+
+@media all and (max-width: 1080px) {
+    .container{
+        min-height: calc(100vh - 11rem); 
+    }
 }
