@@ -44,4 +44,11 @@ export default [
         beforeEnter: getDetailNote(),
         meta: { title: 'Edit Page', search: false, header: true },
     },
+    {
+        path: '/note/:id',
+        name: 'note',
+        component: () => import('@/pages/NotePage.vue'),
+        beforeEnter: getDetailNote(),
+        meta: { title: 'Note Page', search: false, header: true },
+    },
 ];

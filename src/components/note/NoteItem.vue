@@ -46,7 +46,7 @@ export default defineComponent({
         const { REMOVE_NOTE } = post;
         // const DATE = useDate(props.item);
         const onClickItemPage = () => {
-            // router.push(`/note/${props.item.index}`);
+            router.push(`/note/${props.item._id}`);
         };
         const onClickEditPage = () => {
             router.push(`/edit/${props.item._id}`);
