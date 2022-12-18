@@ -19,4 +19,10 @@ interface PostItem {
     contents: string;
 }
 
-export { type SignUp, type Login, type PostItem };
+interface UpdateItem {
+    _id: string;
+    title: string;
+    contents: string;
+}
+
+export { type SignUp, type Login, type PostItem, type UpdateItem };

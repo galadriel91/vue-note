@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setInstance } from './common/instance';
-import type { Login, SignUp, PostItem } from '@/store/types';
+import type { Login, SignUp, PostItem, UpdateItem } from '@/store/types';
 
 const createInstance = () => {
     const instance = axios.create({
@@ -29,4 +29,8 @@ export const addNote = (post: PostItem) => {
 
 export const fetchEditItem = (id: string) => {
     return instance.get(`/posts/${id}`);
+};
+
+export const updateEditItem = (info: UpdateItem) => {
+    return instance.put(`/posts/${info._id}`, info);
 };

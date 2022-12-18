@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { fetchNote, addNote, fetchEditItem } from '@/api';
-import type { PostItem } from './types';
+import { fetchNote, addNote, fetchEditItem, updateEditItem } from '@/api';
+import type { PostItem, UpdateItem } from './types';
 
 export const usePost = defineStore('items', {
     state: () => ({
@@ -19,6 +19,10 @@ export const usePost = defineStore('items', {
         async FETCH_EDITNOTE(id: string) {
             const { data } = await fetchEditItem(id);
             this.edit = data;
+        },
+        async UPDATE_EDITNOTE(info: UpdateItem) {
+            const { data } = await updateEditItem(info);
+            console.log(data);
         },
     },
 });

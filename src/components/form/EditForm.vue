@@ -51,7 +51,7 @@ export default defineComponent({
     },
     setup(props) {
         const post = usePost();
-        // const { UPDATE_NOTE } = post;
+        const { UPDATE_EDITNOTE } = post;
         const router = useRouter();
         const title = ref('');
         const content = ref('');
@@ -67,21 +67,17 @@ export default defineComponent({
         };
 
         const onSubmitForm = async () => {
-            // if (title.value.length && content.value.length) {
-            //     await UPDATE_NOTE({
-            //         id: props.item.id,
-            //         index: props.item.index,
-            //         title: title.value,
-            //         content: content.value,
-            //         date: new Date(),
-            //         update: true,
-            //     });
-            //     onClickMain();
-            // } else {
-            //     alert('다시 한번 확인해 주세요');
-            //     inputFocus();
-            // }
-            console.log(1);
+            if (title.value.length && content.value.length) {
+                await UPDATE_EDITNOTE({
+                    _id: props.item._id,
+                    title: title.value,
+                    contents: content.value,
+                });
+                onClickMain();
+            } else {
+                alert('다시 한번 확인해 주세요');
+                inputFocus();
+            }
         };
 
         onMounted(() => {

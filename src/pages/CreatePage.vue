@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <CreateForm />
     </div>
 </template>
@@ -14,3 +14,7 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="scss">
+@import '@/assets/scss/pages/EditPage.scss';
+</style>
