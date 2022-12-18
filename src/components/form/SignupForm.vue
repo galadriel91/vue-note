@@ -15,7 +15,7 @@
             <div>
                 <i class="xi-lock"></i>
                 <input
-                    type="text"
+                    type="password"
                     placeholder="비밀번호"
                     v-model="password"
                     :class="{ valid: password.length >= 6 }"
