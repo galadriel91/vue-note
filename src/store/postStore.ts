@@ -6,7 +6,7 @@ import {
     updateEditItem,
     removeItem,
 } from '@/api';
-import type { PostItem, UpdateItem } from './types';
+import type { AddItem, PostItem, UpdateItem } from './types';
 
 export const usePost = defineStore('items', {
     state: () => ({
@@ -18,7 +18,7 @@ export const usePost = defineStore('items', {
             const { data } = await fetchNote();
             this.posts = data.posts;
         },
-        async ADD_NOTE(note: PostItem) {
+        async ADD_NOTE(note: AddItem) {
             const { data } = await addNote(note);
             console.log(data);
         },

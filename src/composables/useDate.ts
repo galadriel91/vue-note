@@ -1,7 +1,8 @@
+import type { PostItem } from '@/store/types';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-export const useDate = (note: any) => {
+export const useDate = (note: PostItem) => {
     const route = useRoute();
     const date = new Date(note.updatedAt);
     const daysArray = ['일', '월', '화', '수', '목', '금', '토'];

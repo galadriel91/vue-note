@@ -19,10 +19,21 @@ interface PostItem {
     contents: string;
 }
 
+interface AddItem {
+    title: string;
+    contents: string;
+}
+
 interface UpdateItem {
     _id: string;
     title: string;
     contents: string;
 }
 
-export { type SignUp, type Login, type PostItem, type UpdateItem };
+export {
+    type SignUp,
+    type Login,
+    type PostItem,
+    type UpdateItem,
+    type AddItem,
+};
