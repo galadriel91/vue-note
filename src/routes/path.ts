@@ -37,4 +37,11 @@ export default [
         component: () => import('@/pages/CreatePage.vue'),
         meta: { title: 'Create Page', search: false, header: true },
     },
+    {
+        path: '/edit/:id',
+        name: 'edit',
+        component: () => import('@/pages/EditPage.vue'),
+        // beforeEnter: getDetailNote(),
+        meta: { title: 'Edit Page', search: false, header: true },
+    },
 ];

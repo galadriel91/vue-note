@@ -1,7 +1,7 @@
 <template>
     <div>
         <NoteHeader v-if="isHeader" />
-        <div class="pageWrap">
+        <div class="container">
             <RouterView :key="$route.path" />
         </div>
         <NoteFooter />

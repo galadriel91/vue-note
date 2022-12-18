@@ -40,7 +40,7 @@ export default defineComponent({
             required: true,
         },
     },
-    setup() {
+    setup(props) {
         const router = useRouter();
         // const item = useItem();
         // const { REMOVE_NOTE } = item;
@@ -49,7 +49,7 @@ export default defineComponent({
             // router.push(`/note/${props.item.index}`);
         };
         const onClickEditPage = () => {
-            // router.push(`/edit/${props.item.index}`);
+            router.push(`/edit/1`);
         };
         const onClickRemove = () => {
             // REMOVE_NOTE(props.item.id);

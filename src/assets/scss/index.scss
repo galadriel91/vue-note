@@ -16,6 +16,11 @@ body{
     box-sizing: border-box; 
 }
 
+.container{
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    min-height: calc(100vh - 12rem); 
+}
+
 textarea , input{
     font-family: 'ChosunGu';
 }
