@@ -10,9 +10,8 @@
         </div>
         <div class="contentInfoWrap">
             <div class="dateWrap">
-                <!-- <span>{{ DATE }}</span> -->
-                <span>2022.12.14</span>
-                <!-- <span v-if="item.update">최근 수정</span> -->
+                <span>{{ DATE }}</span>
+                <span v-if="isUpdate">수정</span>
             </div>
             <div class="btnWrap">
                 <button class="xi-pen-o" @click="onClickEditPage"></button>
@@ -26,10 +25,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
+import { defineComponent, type PropType, computed } from 'vue';
 import type { PostItem } from '@/store/types';
-// import type { NoteItems } from '@/store/types';
-// import { useDate } from '@/composables/useDate';
+import { useDate } from '@/composables/useDate';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
 
@@ -44,7 +42,10 @@ export default defineComponent({
         const router = useRouter();
         const post = usePost();
         const { REMOVE_NOTE } = post;
-        // const DATE = useDate(props.item);
+        const DATE = useDate(props.item);
+        const isUpdate = computed(() => {
+            return props.item.createdAt !== props.item.updatedAt;
+        });
         const onClickItemPage = () => {
             router.push(`/note/${props.item._id}`);
         };
@@ -56,10 +57,11 @@ export default defineComponent({
         };
 
         return {
-            // DATE,
+            DATE,
             onClickItemPage,
             onClickRemove,
             onClickEditPage,
+            isUpdate,
         };
     },
 });

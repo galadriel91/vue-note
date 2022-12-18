@@ -22,10 +22,10 @@
                 </div>
             </div>
             <div class="infoWrap" :class="{ noUpdate: true }">
-                <!-- <div class="dateWrap" v-if="item.update">
+                <div class="dateWrap" v-if="isUpdate">
                     <span>최근 수정일 : </span>
                     <span>{{ DATE }}</span>
-                </div> -->
+                </div>
                 <div class="buttonWrap">
                     <button type="button" @click="onClickMain">취소</button>
                     <button type="submit">수정</button>
@@ -36,9 +36,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, type PropType } from 'vue';
+import { defineComponent, ref, onMounted, type PropType, computed } from 'vue';
 import type { PostItem } from '@/store/types';
-// import { useDate } from '@/composables/useDate';
+import { useDate } from '@/composables/useDate';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
 
@@ -56,10 +56,14 @@ export default defineComponent({
         const title = ref('');
         const content = ref('');
         const titleInput = ref<HTMLInputElement>();
-        // const DATE = useDate(props.item);
+        const DATE = useDate(props.item);
         const onClickMain = () => {
             router.go(-1);
         };
+
+        const isUpdate = computed(() => {
+            return props.item.createdAt !== props.item.updatedAt;
+        });
 
         const inputFocus = () => {
             const target = titleInput.value as HTMLInputElement;
@@ -90,7 +94,8 @@ export default defineComponent({
             titleInput,
             onClickMain,
             onSubmitForm,
-            // DATE,
+            DATE,
+            isUpdate,
         };
     },
 });
