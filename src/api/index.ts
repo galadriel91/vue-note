@@ -34,3 +34,7 @@ export const fetchEditItem = (id: string) => {
 export const updateEditItem = (info: UpdateItem) => {
     return instance.put(`/posts/${info._id}`, info);
 };
+
+export const removeItem = (id: string) => {
+    return instance.delete(`/posts/${id}`);
+};

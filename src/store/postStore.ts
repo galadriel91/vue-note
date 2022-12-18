@@ -1,5 +1,11 @@
 import { defineStore } from 'pinia';
-import { fetchNote, addNote, fetchEditItem, updateEditItem } from '@/api';
+import {
+    fetchNote,
+    addNote,
+    fetchEditItem,
+    updateEditItem,
+    removeItem,
+} from '@/api';
 import type { PostItem, UpdateItem } from './types';
 
 export const usePost = defineStore('items', {
@@ -22,6 +28,10 @@ export const usePost = defineStore('items', {
         },
         async UPDATE_EDITNOTE(info: UpdateItem) {
             const { data } = await updateEditItem(info);
+            console.log(data);
+        },
+        async REMOVE_NOTE(id: string) {
+            const { data } = await removeItem(id);
             console.log(data);
         },
     },

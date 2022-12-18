@@ -30,7 +30,7 @@ import { defineComponent, type PropType } from 'vue';
 import type { PostItem } from '@/store/types';
 // import type { NoteItems } from '@/store/types';
 // import { useDate } from '@/composables/useDate';
-// import { useItem } from '@/store/itemStore';
+import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
@@ -42,8 +42,8 @@ export default defineComponent({
     },
     setup(props) {
         const router = useRouter();
-        // const item = useItem();
-        // const { REMOVE_NOTE } = item;
+        const post = usePost();
+        const { REMOVE_NOTE } = post;
         // const DATE = useDate(props.item);
         const onClickItemPage = () => {
             // router.push(`/note/${props.item.index}`);
@@ -52,7 +52,7 @@ export default defineComponent({
             router.push(`/edit/${props.item._id}`);
         };
         const onClickRemove = () => {
-            // REMOVE_NOTE(props.item.id);
+            REMOVE_NOTE(props.item._id);
         };
 
         return {
