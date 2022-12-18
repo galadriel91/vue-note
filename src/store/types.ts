@@ -10,6 +10,11 @@ interface Login {
 }
 
 interface PostItem {
+    __v: number;
+    _id: string;
+    createdAt: string;
+    createdBy: string;
+    updatedAt: string;
     title: string;
     contents: string;
 }

@@ -49,7 +49,7 @@ export default defineComponent({
             // router.push(`/note/${props.item.index}`);
         };
         const onClickEditPage = () => {
-            router.push(`/edit/1`);
+            router.push(`/edit/${props.item._id}`);
         };
         const onClickRemove = () => {
             // REMOVE_NOTE(props.item.id);

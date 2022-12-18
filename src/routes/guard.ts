@@ -15,12 +15,12 @@ export const getPage = () => async (to: RouteLocationNormalizedLoaded) => {
     return;
 };
 
-// export const getDetailNote =
-//     () => async (to: RouteLocationNormalizedLoaded) => {
-//         const common = useCommon();
-//         const item = useItem();
-//         const { ON_LOADING } = common;
-//         const { GET_NOTEITEM } = item;
-//         ON_LOADING();
-//         await GET_NOTEITEM(parseInt(to.params.id as string));
-//     };
+export const getDetailNote =
+    () => async (to: RouteLocationNormalizedLoaded) => {
+        const common = useCommon();
+        const post = usePost();
+        // const { ON_LOADING } = common;
+        const { FETCH_EDITNOTE } = post;
+        // ON_LOADING();
+        await FETCH_EDITNOTE(to.params.id as string);
+    };

@@ -26,3 +26,7 @@ export const fetchNote = () => {
 export const addNote = (post: PostItem) => {
     return instance.post('/posts', post);
 };
+
+export const fetchEditItem = (id: string) => {
+    return instance.get(`/posts/${id}`);
+};
