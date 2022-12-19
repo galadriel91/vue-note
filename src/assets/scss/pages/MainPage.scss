@@ -1,13 +1,6 @@
-
 ul{
-    width: 56rem;
+    width: 50rem;
     border-radius: .5rem; 
-}
-
-@media all and (max-width: 1080px) {
-    .container{
-        min-height: calc(100vh - 11rem); 
-    }
 }
 
 @media all and (max-width:600px){

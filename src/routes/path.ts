@@ -8,11 +8,11 @@ export default [
     {
         path: '/404',
         component: () => import('@/pages/NotPage.vue'),
-        meta: { title: 'Error Page', search: false, header: false },
+        meta: { title: 'Error', search: false, header: false },
     },
     {
         path: '/',
-        redirect: '/login',
+        redirect: '/main',
     },
     {
         path: '/login',
@@ -29,26 +29,26 @@ export default [
         name: 'main',
         component: () => import('@/pages/MainPage.vue'),
         beforeEnter: getPage(),
-        meta: { title: 'Main Page', search: true, header: true },
+        meta: { title: 'Main', search: true, header: true },
     },
     {
         path: '/create',
         name: 'create',
         component: () => import('@/pages/CreatePage.vue'),
-        meta: { title: 'Create Page', search: false, header: true },
+        meta: { title: 'Create', search: false, header: true },
     },
     {
         path: '/edit/:id',
         name: 'edit',
         component: () => import('@/pages/EditPage.vue'),
         beforeEnter: getDetailNote(),
-        meta: { title: 'Edit Page', search: false, header: true },
+        meta: { title: 'Edit', search: false, header: true },
     },
     {
         path: '/note/:id',
         name: 'note',
         component: () => import('@/pages/NotePage.vue'),
         beforeEnter: getDetailNote(),
-        meta: { title: 'Note Page', search: false, header: true },
+        meta: { title: 'Note', search: false, header: true },
     },
 ];

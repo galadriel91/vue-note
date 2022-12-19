@@ -1,74 +1,53 @@
 <template>
     <header>
-        <div class="headerWrap">
-            <h1><a href="#home">PORTFOLIO</a></h1>
-            <div>
-                <nav :class="{ showing: isActive }">
-                    <ul id="menu">
-                        <li data-menuanchor="home" @click="onClickRemove">
-                            <RouterLink to="/create"
-                                ><span>Create</span></RouterLink
-                            >
-                        </li>
-                        <li data-menuanchor="about" @click="onClickRemove">
-                            <a href="#about"><span>Logout</span></a>
-                        </li>
-                    </ul>
-                </nav>
-                <button
-                    :class="isDark"
-                    @click="onClickDark"
-                    class="dark"
-                ></button>
-                <a
-                    href="javascript:void(0)"
-                    class="wholeBtn"
-                    @click="onToggleActive"
-                >
-                    <span :class="{ active: isActive }">&nbsp;</span>
-                </a>
-            </div>
-        </div>
+        <button
+            class="xi-long-arrow-left"
+            @click="onClickBefore"
+            v-show="search"
+        ></button>
+        <h1>{{ headerName }}</h1>
+        <button
+            class="xi-plus"
+            @click="onClickCreate"
+            v-show="!showBtns"
+        ></button>
     </header>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { useHeader } from '@/composables/useHeader';
 
 export default defineComponent({
     setup() {
-        const isActive = ref(false);
-        const dark = ref(false);
-        const onToggleActive = () => {
-            isActive.value = !isActive.value;
-        };
-        const onClickRemove = () => {
-            isActive.value = false;
-        };
-        const onClickDark = () => {
-            dark.value = !dark.value;
-            localStorage.setItem('dark', JSON.stringify(dark.value));
-            document.body.classList.toggle('dark');
-        };
-        const isDark = computed(() => {
-            return dark.value ? 'xi-sun' : 'xi-moon';
+        const router = useRouter();
+        const route = useRoute();
+        const headerName = ref(useHeader());
+
+        const search = computed(() => {
+            return route.name === 'search';
         });
-        const initDark = () => {
-            if (localStorage.dark) {
-                dark.value = JSON.parse(localStorage.dark);
-                if (dark.value == true) {
-                    document.body.classList.add('dark');
-                }
-            }
+
+        const showBtns = computed(() => {
+            const name = route.name;
+            return name === 'create';
+        });
+
+        const onClickCreate = () => {
+            router.push('/create');
         };
-        initDark();
+
+        const onClickBefore = () => {
+            router.go(-1);
+        };
 
         return {
-            isActive,
-            onToggleActive,
-            onClickRemove,
-            onClickDark,
-            isDark,
+            search,
+            headerName,
+            showBtns,
+            onClickCreate,
+            onClickBefore,
         };
     },
 });

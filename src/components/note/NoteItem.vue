@@ -11,14 +11,21 @@
         <div class="contentInfoWrap">
             <div class="dateWrap">
                 <span>{{ DATE }}</span>
-                <span v-if="isUpdate">수정</span>
+                <span v-if="isUpdate">최근 수정</span>
             </div>
             <div class="btnWrap">
-                <button class="xi-pen-o" @click="onClickEditPage"></button>
                 <button
-                    class="xi-minus-square-o"
+                    class="material-symbols-outlined"
+                    @click="onClickEditPage"
+                >
+                    edit_note
+                </button>
+                <button
+                    class="material-symbols-outlined"
                     @click="onClickRemove"
-                ></button>
+                >
+                    delete_forever
+                </button>
             </div>
         </div>
     </li>

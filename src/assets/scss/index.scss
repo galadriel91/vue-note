@@ -26,11 +26,5 @@ input:focus{
 
 .container{
     display: flex; justify-content: center; align-items: center; flex-direction: column;
-    min-height: calc(100vh - 12rem); 
-}
-
-@media all and (max-width: 1080px) {
-    .container{
-        min-height: calc(100vh - 11rem); 
-    }
+    min-height: 100vh
 }

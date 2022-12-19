@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <EditForm :item="edit" />
     </div>
 </template>

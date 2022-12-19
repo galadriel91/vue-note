@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <ul>
             <NoteItem
                 v-for="(post, index) in posts"
