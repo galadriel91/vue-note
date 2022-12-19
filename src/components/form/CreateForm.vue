@@ -22,8 +22,20 @@
                 </div>
             </div>
             <div class="buttonWrap">
-                <button type="button" @click="onClickMain">취소</button>
-                <button type="submit">저장</button>
+                <button class="pcBtn" type="button" @click="onClickMain">
+                    취소
+                </button>
+                <button
+                    class="material-symbols-outlined moBtn"
+                    type="button"
+                    @click="onClickMain"
+                >
+                    disabled_by_default
+                </button>
+                <button class="pcBtn" type="submit">생성</button>
+                <button class="material-symbols-outlined moBtn" type="submit">
+                    check_box
+                </button>
             </div>
         </form>
     </div>
