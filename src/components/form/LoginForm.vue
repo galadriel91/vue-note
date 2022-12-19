@@ -3,7 +3,7 @@
         <img src="@/assets/images/gondor.png" alt="" />
         <form @submit.prevent="onSubmitForm">
             <div>
-                <i class="xi-mail"></i>
+                <i class="material-symbols-outlined">mail</i>
                 <input
                     type="text"
                     placeholder="이메일"
@@ -13,7 +13,7 @@
                 />
             </div>
             <div>
-                <i class="xi-lock"></i>
+                <i class="material-symbols-outlined"> lock </i>
                 <input
                     type="password"
                     placeholder="비밀번호"
