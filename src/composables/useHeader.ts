@@ -11,7 +11,7 @@ export const useHeader = () => {
         } else if (name === 'edit') {
             return 'Edit Note';
         } else if (name === 'note') {
-            return 'Note Page';
+            return 'Simple Note';
         } else {
             return 'Search Page';
         }

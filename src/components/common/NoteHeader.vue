@@ -1,16 +1,13 @@
 <template>
     <header>
-        <button
-            class="xi-long-arrow-left"
-            @click="onClickBefore"
-            v-show="search"
-        ></button>
         <h1>{{ headerName }}</h1>
         <button
-            class="xi-plus"
+            class="material-symbols-outlined"
             @click="onClickCreate"
             v-show="!showBtns"
-        ></button>
+        >
+            add
+        </button>
     </header>
 </template>
 

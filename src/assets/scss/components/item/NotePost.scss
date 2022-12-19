@@ -1,12 +1,12 @@
 .postWrap{
-    width: 50rem; padding: 2rem 2rem;
+    width: 50rem; padding: 2rem 2rem; 
     background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
-    border-radius: .5rem;
+    border-radius: .5rem; box-sizing: border-box;
     .postLeft{
         .titleWrap{
             h2{
                 padding-bottom: 1rem; border-bottom: 1px solid #ddd;
-                font-size: 2.2rem; line-height: 3rem; color: #141b22; 
+                font-size: 2.2rem; line-height: 3rem; color: #141b22; font-weight: normal;
             }
         }
         .contentWrap{

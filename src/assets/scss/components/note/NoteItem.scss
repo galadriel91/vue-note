@@ -1,6 +1,6 @@
 .noteItem{
-    position: relative; padding: 1.5rem;
-    margin-bottom: 2rem; 
+    position: relative; padding: 1.5rem; width: 100%;
+    margin-bottom: 2rem;  box-sizing: border-box;
     box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem; 
     background: #fafafa; 
     button{
@@ -53,54 +53,42 @@
 }
 
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 550px) {
     .noteItem{
-        margin-bottom: 1rem;
-        padding: 2rem; height: 17.5rem; box-sizing: border-box;
-        .contentWrap{
-            padding: 0;
-            &Title{
-                margin-bottom: 1rem;
-            }
-        }
-        .contentInfoWrap{
-            padding: 0;
-            button{
-                margin: 0 .5rem;
-            }
-        }
+        width: 95%; margin: 0 auto;
+        box-sizing: border-box;
     }
 }
 
-@media all and (max-width: 500px) {
-    .noteItem{
-        height: 15rem; 
-        .contentWrap{
-            padding: 0;
-            &Title{
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-            &Content{
-                p{
-                    font-size: 1.4rem;
-                }
-            }
-        }
-        .contentInfoWrap{
-            padding: 0; margin-top: 0;
-            .dateWrap{
-                span{
-                    font-size: 1.3rem;
-                    &:nth-child(2){
-                        font-size: 1.2rem;
-                    }
-                }
-            }
-            button{
-                margin: 0 .5rem;
-                font-size: 1.5rem; 
-            }
-        }
-    }
-}
+// @media all and (max-width: 500px) {
+//     .noteItem{
+//         height: 15rem; 
+//         .contentWrap{
+//             padding: 0;
+//             &Title{
+//                 font-size: 1.6rem;
+//                 margin-bottom: 1rem;
+//             }
+//             &Content{
+//                 p{
+//                     font-size: 1.4rem;
+//                 }
+//             }
+//         }
+//         .contentInfoWrap{
+//             padding: 0; margin-top: 0;
+//             .dateWrap{
+//                 span{
+//                     font-size: 1.3rem;
+//                     &:nth-child(2){
+//                         font-size: 1.2rem;
+//                     }
+//                 }
+//             }
+//             button{
+//                 margin: 0 .5rem;
+//                 font-size: 1.5rem; 
+//             }
+//         }
+//     }
+// }

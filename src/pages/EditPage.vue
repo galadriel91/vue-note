@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <EditForm :item="edit" />
-    </div>
+    <EditForm :item="edit" />
 </template>
 
 <script lang="ts">

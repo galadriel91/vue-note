@@ -21,14 +21,30 @@
                     ></textarea>
                 </div>
             </div>
-            <div class="infoWrap" :class="{ noUpdate: true }">
-                <div class="dateWrap" v-if="isUpdate">
-                    <span>최근 수정일 : </span>
+            <div class="infoWrap" :class="{ noUpdate: !isUpdate }">
+                <div class="dateWrap">
+                    <span v-if="isUpdate">수정 : </span>
+                    <span v-else>생성 : </span>
                     <span>{{ DATE }}</span>
                 </div>
                 <div class="buttonWrap">
-                    <button type="button" @click="onClickMain">취소</button>
-                    <button type="submit">수정</button>
+                    <button class="pcBtn" type="button" @click="onClickMain">
+                        취소
+                    </button>
+                    <button
+                        class="material-symbols-outlined moBtn"
+                        type="button"
+                        @click="onClickMain"
+                    >
+                        disabled_by_default
+                    </button>
+                    <button class="pcBtn" type="submit">수정</button>
+                    <button
+                        class="material-symbols-outlined moBtn"
+                        type="submit"
+                    >
+                        check_box
+                    </button>
                 </div>
             </div>
         </form>

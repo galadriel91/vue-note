@@ -38,3 +38,9 @@ export const updateEditItem = (info: UpdateItem) => {
 export const removeItem = (id: string) => {
     return instance.delete(`/posts/${id}`);
 };
+
+export const getWeather = () => {
+    return axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=6cf4638261aa257f2e15b223f0b61f32`,
+    );
+};

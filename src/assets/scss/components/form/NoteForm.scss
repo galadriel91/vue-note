@@ -37,7 +37,7 @@
             }
         }
         .buttonWrap{
-            padding: 0 2.4rem; display: flex; justify-content: flex-end;
+            padding: 0 2rem; display: flex; justify-content: flex-end;
             button{
                 display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
                 font-size: 1.4rem; cursor: pointer;
@@ -52,3 +52,24 @@
         }
     }
 }
+
+@media all and (max-width: 550px) {
+    .inputWrap{
+        width: 95%; margin: 0 auto; padding: 1.5rem 0;
+        form{
+            .formWrap{
+                padding: 0 1.5rem 1.5rem;
+                input{
+                    margin-bottom: 1rem;
+                }
+            }
+            .buttonWrap{
+                padding: 0 1.5rem;
+                button{
+                    width: 8rem; height: 3.5rem;
+                }
+            }
+        }
+    }
+}
+

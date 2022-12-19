@@ -38,11 +38,8 @@
         }
         .infoWrap{
             padding: 0 2.4rem; display: flex; justify-content: space-between; align-items: center;
-            &.noUpdate{
-                justify-content: flex-end;
-            }
             .dateWrap{
-                margin-left: .25rem;
+                // margin-left: .25rem;
                 font-size: 1.4rem;
             }
             .buttonWrap{
@@ -51,10 +48,35 @@
                     font-size: 1.4rem; cursor: pointer;
                     &:nth-child(1){
                         margin-right: 1.5rem;
-                        background: none; border: 1px solid #dee2e6;
+                        background: crimson; color: #fff;
                     }
-                    &:nth-child(2){
+                    &:nth-child(3){
                         background: #1d9bf0; color: #fff;
+                    }
+                }
+                button.moBtn{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 550px) {
+    .inputWrap{
+        width: 95%; margin: 0 auto; padding: 1.5rem 0;
+        form{
+            .formWrap{
+                padding: 0 1.5rem 1.5rem;
+                input{
+                    margin-bottom: 1rem;
+                }
+            }
+            .infoWrap{
+                padding: 0 1.5rem;
+                .buttonWrap{
+                    button{
+                        width: 8rem; height: 3.5rem;
                     }
                 }
             }
@@ -62,24 +84,26 @@
     }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 490px) {
     .inputWrap{
-        width: 95%; margin: 0 auto; padding: 2rem 0;
         form{
-            .formWrap{
-                padding: 0 1.5rem 1.5rem 1.5rem;
-            }
             .infoWrap{
-                flex-direction: column; 
-                &.noUpdate{
-                    align-items: center;
-                }
-                .dateWrap{
-                    margin-bottom: 1rem; margin-left: 0;
-                }
                 .buttonWrap{
                     button{
-                        width: 8rem; height: 3.5rem;
+                        width: 4.5rem; height: 3rem; font-size: 2.5rem;
+                    }
+                    button.pcBtn{
+                        display: none;
+                    }
+                    button.moBtn{
+                        display: inline-block;
+                        &:nth-child(2){
+                            margin-right: 1rem;
+                            background: crimson; color: #fff;
+                        }
+                        &:nth-child(4){
+                            background: #1d9bf0; color: #fff;
+                        }
                     }
                 }
             }

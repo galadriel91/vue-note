@@ -1,13 +1,7 @@
 <template>
-    <div>
-        <ul>
-            <NoteItem
-                v-for="(post, index) in posts"
-                :item="post"
-                :key="index"
-            />
-        </ul>
-    </div>
+    <ul>
+        <NoteItem v-for="(post, index) in posts" :item="post" :key="index" />
+    </ul>
 </template>
 
 <script lang="ts">
@@ -16,6 +10,7 @@ import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
 import { useLoading } from '@/composables/useLoading';
 import NoteItem from '@/components/note/NoteItem.vue';
+import { getWeather } from '@/api';
 
 export default defineComponent({
     components: {
@@ -25,6 +20,11 @@ export default defineComponent({
         const post = usePost();
         const { posts } = storeToRefs(post);
         useLoading();
+        const weatherData = async () => {
+            const { data } = await getWeather();
+            console.log(data);
+        };
+        weatherData();
         return {
             posts,
         };
