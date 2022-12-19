@@ -14,10 +14,26 @@
             </div>
         </div>
         <div class="postRight">
-            <button @click="onClickMain">이전</button>
+            <button class="pcBtn" @click="onClickMain">이전</button>
+            <button
+                class="material-symbols-outlined moBtn"
+                @click="onClickMain"
+            >
+                undo
+            </button>
             <div class="buttonWrap">
-                <button @click="onClickEdit">수정</button>
-                <button @click="onClickRemove">삭제</button>
+                <button class="pcBtn" @click="onClickRemove">삭제</button>
+                <button
+                    class="material-symbols-outlined moBtn"
+                    type="button"
+                    @click="onClickMain"
+                >
+                    disabled_by_default
+                </button>
+                <button class="pcBtn" @click="onClickEdit">수정</button>
+                <button class="material-symbols-outlined moBtn" type="submit">
+                    check_box
+                </button>
             </div>
         </div>
     </div>

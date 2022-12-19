@@ -1,5 +1,5 @@
 .postWrap{
-    width: 50rem; padding: 2rem 2rem; 
+    width: 50rem; padding: 2rem; 
     background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
     border-radius: .5rem; box-sizing: border-box;
     .postLeft{
@@ -32,23 +32,70 @@
             display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
             font-size: 1.4rem; cursor: pointer; background: none; border: 1px solid #dee2e6;
         }
+        button.moBtn{
+            display: none;
+        }
         .buttonWrap{
             button{
                 border: none;
-                &:nth-child(1){
+                &:nth-child(1) , &:nth-child(2){
                     margin-right: 1rem;
-                    background: #1d9bf0; color: #fff; 
-                }
-                &:nth-child(2){
                     background: crimson; color: #fff;
                 }
+                &:nth-child(3) , &:nth-child(4){
+                    background: #1d9bf0; color: #fff; 
+                }
+            }
+            button.moBtn{
+                display: none;
             }
         }
     }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 550px) {
     .postWrap{
         width: 95%; margin: 0 auto; box-sizing: border-box;
+        padding: 1.5rem;
+        .postRight{
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+@media all and (max-width: 490px) {
+    .postWrap{
+        .postLeft{
+            .titleWrap{
+                h2{
+                    font-size: 2rem; line-height: 2.8rem;
+                }
+            }
+            .contentWrap{
+                p{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .postRight{
+            button{
+                width: 4.5rem; height: 3rem; font-size: 2.5rem;
+                color: #141b22;
+            }
+            button.pcBtn{
+                display: none;
+            }
+            button.moBtn{
+                display: inline-block;
+            }
+            .buttonWrap{
+                button.pcBtn{
+                    display: none;
+                }
+                button.moBtn{
+                    display: inline-block;
+                }
+            }
+        }
     }
 }

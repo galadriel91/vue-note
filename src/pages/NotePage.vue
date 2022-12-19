@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <NotePost :item="edit" />
-    </div>
+    <NotePost :item="edit" />
 </template>
 
 <script lang="ts">

@@ -57,38 +57,10 @@
     .noteItem{
         width: 95%; margin: 0 auto 1rem;
         box-sizing: border-box;
+        .contentWrap{
+            &Title{
+                font-size: 1.8rem;
+            }
+        }
     }
 }
-
-// @media all and (max-width: 500px) {
-//     .noteItem{
-//         height: 15rem; 
-//         .contentWrap{
-//             padding: 0;
-//             &Title{
-//                 font-size: 1.6rem;
-//                 margin-bottom: 1rem;
-//             }
-//             &Content{
-//                 p{
-//                     font-size: 1.4rem;
-//                 }
-//             }
-//         }
-//         .contentInfoWrap{
-//             padding: 0; margin-top: 0;
-//             .dateWrap{
-//                 span{
-//                     font-size: 1.3rem;
-//                     &:nth-child(2){
-//                         font-size: 1.2rem;
-//                     }
-//                 }
-//             }
-//             button{
-//                 margin: 0 .5rem;
-//                 font-size: 1.5rem; 
-//             }
-//         }
-//     }
-// }
