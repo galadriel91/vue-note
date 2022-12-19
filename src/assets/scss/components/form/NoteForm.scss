@@ -36,21 +36,35 @@
                 }
             }
         }
-        .buttonWrap{
-            padding: 0 2rem; display: flex; justify-content: flex-end;
-            button{
-                display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
-                font-size: 1.4rem; cursor: pointer;
-                &:nth-child(1) , &:nth-child(2){
-                    margin-right: 1.5rem;
-                    background: crimson; color: #fff;
+        .infoWrap{
+            padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;
+            .dateWrap{
+                display: flex; align-items: center;
+                span{
+                    &:nth-child(1){
+                        position: relative; top: -.1rem;
+                        margin-right: .5rem;
+                    }
                 }
-                &:nth-child(3) , &:nth-child(4){
-                    background: #1d9bf0; color: #fff;
-                }
+                // margin-left: .25rem;
+                font-size: 1.4rem;
             }
-            button.moBtn{
-                display: none;
+            .buttonWrap{
+                display: flex; justify-content: flex-end;
+                button{
+                    display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
+                    font-size: 1.4rem; cursor: pointer;
+                    &:nth-child(1) , &:nth-child(2){
+                        margin-right: 1.5rem;
+                        background: crimson; color: #fff;
+                    }
+                    &:nth-child(3) , &:nth-child(4){
+                        background: #1d9bf0; color: #fff;
+                    }
+                }
+                button.moBtn{
+                    display: none;
+                }
             }
         }
     }
@@ -66,10 +80,12 @@
                     margin-bottom: 1rem;
                 }
             }
-            .buttonWrap{
+            .infoWrap{
                 padding: 0 1.5rem;
-                button{
-                    width: 8rem; height: 3.5rem;
+                .buttonWrap{
+                    button{
+                        width: 8rem; height: 3.5rem;
+                    }
                 }
             }
         }
@@ -79,18 +95,20 @@
 @media all and (max-width: 490px) {
     .inputWrap{
         form{
-            .buttonWrap{
-                button{
-                    width: 4.5rem; height: 3rem; font-size: 2.5rem;
-                    &:nth-child(2){
-                        margin-right: 1rem;
+            .infoWrap{
+                .buttonWrap{
+                    button{
+                        width: 4.5rem; height: 3rem; font-size: 2.5rem;
+                        &:nth-child(2){
+                            margin-right: 1rem;
+                        }
                     }
-                }
-                button.pcBtn{
-                    display: none;
-                }
-                button.moBtn{
-                    display: block;
+                    button.pcBtn{
+                        display: none;
+                    }
+                    button.moBtn{
+                        display: block;
+                    }
                 }
             }
         }

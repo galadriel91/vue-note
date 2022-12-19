@@ -21,21 +21,32 @@
                     ></textarea>
                 </div>
             </div>
-            <div class="buttonWrap">
-                <button class="pcBtn" type="button" @click="onClickMain">
-                    취소
-                </button>
-                <button
-                    class="material-symbols-outlined moBtn"
-                    type="button"
-                    @click="onClickMain"
-                >
-                    disabled_by_default
-                </button>
-                <button class="pcBtn" type="submit">생성</button>
-                <button class="material-symbols-outlined moBtn" type="submit">
-                    check_box
-                </button>
+            <div class="infoWrap">
+                <div class="dateWrap">
+                    <span class="material-symbols-outlined">
+                        calendar_today
+                    </span>
+                    <span>{{ time }}</span>
+                </div>
+                <div class="buttonWrap">
+                    <button class="pcBtn" type="button" @click="onClickMain">
+                        취소
+                    </button>
+                    <button
+                        class="material-symbols-outlined moBtn"
+                        type="button"
+                        @click="onClickMain"
+                    >
+                        disabled_by_default
+                    </button>
+                    <button class="pcBtn" type="submit">생성</button>
+                    <button
+                        class="material-symbols-outlined moBtn"
+                        type="submit"
+                    >
+                        check_box
+                    </button>
+                </div>
             </div>
         </form>
     </div>
@@ -55,6 +66,8 @@ export default defineComponent({
         const title = ref('');
         const titleInput = ref<HTMLInputElement>();
         const content = ref('');
+        const today = new Date();
+        const time = ref(today.toLocaleString());
 
         const onSubmitForm = async () => {
             if (title.value.length && content.value.length) {
@@ -78,6 +91,10 @@ export default defineComponent({
         };
 
         onMounted(() => {
+            setInterval(() => {
+                const today = new Date();
+                time.value = today.toLocaleString();
+            }, 1000);
             inputFocus();
         });
 
@@ -87,6 +104,7 @@ export default defineComponent({
             content,
             onSubmitForm,
             onClickMain,
+            time,
         };
     },
 });

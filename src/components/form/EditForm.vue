@@ -21,7 +21,7 @@
                     ></textarea>
                 </div>
             </div>
-            <div class="infoWrap" :class="{ noUpdate: !isUpdate }">
+            <div class="infoWrap">
                 <div class="dateWrap">
                     <span v-if="isUpdate">수정 : </span>
                     <span v-else>생성 : </span>
