@@ -25,7 +25,9 @@
         <div class="etcWrap">
             <div class="buttons">
                 <button class="material-symbols-outlined">location_on</button>
-                <button class="material-symbols-outlined">dark_mode</button>
+                <button class="material-symbols-outlined" @click="onClickDark">
+                    {{ isDark }}
+                </button>
                 <button
                     class="material-symbols-outlined"
                     @click="onClickLogout"
@@ -47,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useTime } from '@/composables/useTime';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
@@ -57,6 +59,7 @@ import { useUser } from '@/store/userStore';
 
 export default defineComponent({
     setup() {
+        const dark = ref(false);
         const router = useRouter();
         const post = usePost();
         const userInfo = useUser();
@@ -82,11 +85,32 @@ export default defineComponent({
             router.push('/create');
         };
 
+        const onClickDark = () => {
+            dark.value = !dark.value;
+            localStorage.setItem('dark', JSON.stringify(dark.value));
+            document.body.classList.toggle('dark');
+        };
+        const isDark = computed(() => {
+            return dark.value ? 'light_mode' : 'dark_mode';
+        });
+
+        const initDark = () => {
+            if (localStorage.dark) {
+                dark.value = JSON.parse(localStorage.dark);
+                if (dark.value == true) {
+                    document.body.classList.add('dark');
+                }
+            }
+        };
+        initDark();
+
         return {
             weather,
             timeInfo,
             onClickCreate,
             onClickLogout,
+            isDark,
+            onClickDark,
         };
     },
 });
