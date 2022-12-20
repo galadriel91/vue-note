@@ -3,8 +3,30 @@
     box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem; 
     background: #fafafa; margin-bottom: 2rem;
     .timeWrap{
-        span{
-            font-size: 2rem; color: #141b22;
+        h3{
+            font-size: 2.5rem; font-weight: normal; color: #141b22;
+            margin-bottom: 1rem;
+            span{
+                font-size: 1.6rem;
+            }
         }
+        span{
+            margin-left: .25rem;
+            font-size: 1.4rem; color: #141b22;
+        }
+        .locationInfo{
+            margin-top: 1rem;
+            span{
+                font-size: 2rem; color: #141b22;
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 550px) {
+    .weatherItem{
+        width: 95%; margin: 0 auto 1rem;
+
     }
 }
