@@ -26,7 +26,12 @@
             <div class="buttons">
                 <button class="material-symbols-outlined">location_on</button>
                 <button class="material-symbols-outlined">dark_mode</button>
-                <button class="material-symbols-outlined">logout</button>
+                <button
+                    class="material-symbols-outlined"
+                    @click="onClickLogout"
+                >
+                    logout
+                </button>
                 <button
                     class="material-symbols-outlined"
                     @click="onClickCreate"
@@ -47,14 +52,31 @@ import { useTime } from '@/composables/useTime';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
+import { deleteCookie } from '@/utils/cookie';
+import { useUser } from '@/store/userStore';
 
 export default defineComponent({
     setup() {
         const router = useRouter();
         const post = usePost();
+        const userInfo = useUser();
         const timeInfo = useTime();
         const { weather } = storeToRefs(post);
+        const { token, user } = storeToRefs(userInfo);
         console.log(weather.value);
+
+        const onClickLogout = () => {
+            const answer = confirm('로그아웃 하시겠습니까?');
+            if (answer) {
+                token.value = '';
+                user.value = {};
+                deleteCookie('til_auth');
+                deleteCookie('til_user');
+                router.push('/login');
+            } else {
+                return;
+            }
+        };
 
         const onClickCreate = () => {
             router.push('/create');
@@ -64,6 +86,7 @@ export default defineComponent({
             weather,
             timeInfo,
             onClickCreate,
+            onClickLogout,
         };
     },
 });
