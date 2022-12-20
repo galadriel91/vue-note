@@ -1,5 +1,10 @@
 <template>
-    <div class="weatherItem"></div>
+    <div class="weatherItem">
+        <div class="timeWrap">
+            <span>Tue Dec 20 2022</span>
+        </div>
+        <div class="weatherWrap"></div>
+    </div>
 </template>
 
 <script lang="ts">
