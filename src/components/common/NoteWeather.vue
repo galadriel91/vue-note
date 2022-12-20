@@ -11,11 +11,13 @@
                 </div>
             </div>
             <div class="timeInfo">
-                <h3>
-                    {{ timeInfo.time.value }}
-                    <span>{{ timeInfo.am.value }}</span>
-                </h3>
-                <span>{{ timeInfo.day.value }}</span>
+                <div class="timeDetail">
+                    <h3>
+                        {{ timeInfo.time.value }}
+                        <span>{{ timeInfo.am.value }}</span>
+                    </h3>
+                    <span>{{ timeInfo.day.value }}</span>
+                </div>
                 <div class="locationInfo">
                     <span>{{ weather.name }},</span>
                     <span>{{ weather.sys.country }}</span>
