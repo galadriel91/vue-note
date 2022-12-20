@@ -41,6 +41,6 @@ export const removeItem = (id: string) => {
 
 export const getWeather = () => {
     return axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=6cf4638261aa257f2e15b223f0b61f32`,
+        `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=6cf4638261aa257f2e15b223f0b61f32&units=metric`,
     );
 };

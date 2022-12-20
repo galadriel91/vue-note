@@ -1,24 +1,60 @@
 .weatherItem{
+    display: flex; justify-content: space-between;
     width: 50rem; height: 12rem; padding: 2rem; box-sizing: border-box;
     box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem; 
     background: #fafafa; margin-bottom: 2rem;
     .timeWrap{
-        h3{
-            font-size: 2.5rem; font-weight: normal; color: #141b22;
-            margin-bottom: 1rem;
+        display: flex;
+        .timeInfo{
+            margin-left: 1rem;
+            h3{
+                font-size: 2.5rem; font-weight: normal; color: #141b22;
+                margin-bottom: 1rem;
+                span{
+                    font-size: 1.6rem;
+                }
+            }
             span{
-                font-size: 1.6rem;
+                margin-left: .25rem;
+                font-size: 1.4rem; color: #141b22;
+            }
+            .locationInfo{
+                margin-top: 1rem;
+                span{
+                    font-size: 2rem; color: #141b22;
+                }
             }
         }
-        span{
-            margin-left: .25rem;
-            font-size: 1.4rem; color: #141b22;
-        }
-        .locationInfo{
-            margin-top: 1rem;
+        .weatherWrap{
+            position: relative; width: 11rem;
+            img{
+                position: absolute; top: 0rem; left: -2rem;
+            }
             span{
+                position: absolute; right: 1rem; top: .3rem;
+                display: block;
                 font-size: 2rem; color: #141b22;
+                letter-spacing: -.2rem;
             }
+        }
+    }
+    .etcWrap{
+        .buttons{
+            text-align: right;
+            button{
+                background: none; font-size: 3rem; margin: 0 .4rem;
+                color: #141b22; cursor: pointer; transition: all .5s;
+                &:hover{
+                    color: #1d9bf0;
+                }
+                &:nth-child(4){
+                    margin-right: 0;
+                }
+            }
+        }
+        .quote{
+            text-align: right;
+            margin-top: 1rem; font-size: 1.4rem;
         }
     }
 }
@@ -27,6 +63,38 @@
 @media all and (max-width: 550px) {
     .weatherItem{
         width: 95%; margin: 0 auto 1rem;
-
+        // .timeWrap{
+        //     .timeInfo{
+        //         margin-left: 1rem;
+        //         h3{
+        //             font-size: 2rem;
+        //             margin-bottom: 1rem;
+        //             span{
+        //                 font-size: 1.6rem;
+        //             }
+        //         }
+        //         span{
+        //             margin-left: .25rem;
+        //             font-size: 1.4rem; color: #141b22;
+        //         }
+        //         .locationInfo{
+        //             margin-top: 1rem;
+        //             span{
+        //                 font-size: 2rem; color: #141b22;
+        //             }
+        //         }
+        //     }
+        //     .weatherWrap{
+        //         position: relative; width: 8rem;
+        //         img{
+        //             height: 8rem;
+        //             position: absolute; top: 0rem; left: -2rem;
+        //         }
+        //         span{
+        //             position: absolute; right: 1rem; top: .3rem;
+        //             font-size: 1.8rem;
+        //         }
+        //     }
+        // }
     }
 }

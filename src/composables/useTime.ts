@@ -1,4 +1,4 @@
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 export const useTime = () => {
     const dayInfo = ref(new Date());

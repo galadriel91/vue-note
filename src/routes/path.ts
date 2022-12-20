@@ -40,7 +40,7 @@ export default [
         name: 'main',
         component: () => import('@/pages/MainPage.vue'),
         beforeEnter: getPage(),
-        meta: { title: 'Main', search: true, header: true, auth: true },
+        meta: { title: 'Main', search: true, header: false, auth: true },
     },
     {
         path: '/create',
