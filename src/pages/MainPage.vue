@@ -1,4 +1,5 @@
 <template>
+    <NoteWeather />
     <ul>
         <NoteItem v-for="(post, index) in posts" :item="post" :key="index" />
     </ul>
@@ -10,21 +11,17 @@ import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
 import { useLoading } from '@/composables/useLoading';
 import NoteItem from '@/components/note/NoteItem.vue';
-import { getWeather } from '@/api';
+import NoteWeather from '@/components/common/NoteWeather.vue';
 
 export default defineComponent({
     components: {
         NoteItem,
+        NoteWeather,
     },
     setup() {
         const post = usePost();
         const { posts } = storeToRefs(post);
         useLoading();
-        const weatherData = async () => {
-            const { data } = await getWeather();
-            console.log(data);
-        };
-        weatherData();
         return {
             posts,
         };

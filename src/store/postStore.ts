@@ -5,13 +5,15 @@ import {
     fetchEditItem,
     updateEditItem,
     removeItem,
+    getWeather,
 } from '@/api';
-import type { AddItem, PostItem, UpdateItem } from './types';
+import type { AddItem, PostItem, UpdateItem, WeatherItem } from './types';
 
 export const usePost = defineStore('items', {
     state: () => ({
         posts: [] as PostItem[],
         edit: {} as PostItem,
+        weather: {} as WeatherItem,
     }),
     actions: {
         async FETCH_NOTE() {
@@ -33,6 +35,10 @@ export const usePost = defineStore('items', {
         async REMOVE_NOTE(id: string) {
             const { data } = await removeItem(id);
             console.log(data);
+        },
+        async GET_WEATHER() {
+            const { data } = await getWeather();
+            this.weather = data;
         },
     },
 });

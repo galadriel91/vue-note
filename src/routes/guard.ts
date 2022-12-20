@@ -6,9 +6,10 @@ export const getPage = () => async () => {
     const common = useCommon();
     const post = usePost();
     const { ON_LOADING } = common;
-    const { FETCH_NOTE } = post;
+    const { FETCH_NOTE, GET_WEATHER } = post;
     ON_LOADING();
     await FETCH_NOTE();
+    await GET_WEATHER();
     return;
 };
 

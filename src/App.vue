@@ -2,7 +2,6 @@
     <div class="container">
         <NoteHeader v-if="isHeader" />
         <RouterView :key="$route.path" />
-        <!-- <NoteFooter /> -->
         <NoteLoading />
     </div>
 </template>
@@ -10,13 +9,11 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import NoteFooter from './components/common/NoteFooter.vue';
 import NoteHeader from './components/common/NoteHeader.vue';
 import NoteLoading from './components/common/NoteLoading.vue';
 
 export default defineComponent({
     components: {
-        NoteFooter,
         NoteLoading,
         NoteHeader,
     },
