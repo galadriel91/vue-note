@@ -26,7 +26,12 @@
         </div>
         <div class="etcWrap">
             <div class="buttons">
-                <button class="material-symbols-outlined">location_on</button>
+                <button
+                    class="material-symbols-outlined"
+                    @click="onClickLocation"
+                >
+                    location_on
+                </button>
                 <button class="material-symbols-outlined" @click="onClickDark">
                     {{ isDark }}
                 </button>
@@ -51,19 +56,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, ref, computed, onMounted } from 'vue';
 import { useTime } from '@/composables/useTime';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { deleteCookie } from '@/utils/cookie';
 import { useUser } from '@/store/userStore';
+import { locationWeather } from '@/api';
 
 export default defineComponent({
     setup() {
         const dark = ref(false);
         const router = useRouter();
         const post = usePost();
+        const lasInfo = ref(0);
+        const losInfo = ref(0);
         const userInfo = useUser();
         const timeInfo = useTime();
         const { weather } = storeToRefs(post);
@@ -106,6 +114,25 @@ export default defineComponent({
         };
         initDark();
 
+        const onClickLocation = async () => {
+            navigator.geolocation.getCurrentPosition(pos => {
+                lasInfo.value = pos.coords.latitude;
+                losInfo.value = pos.coords.longitude;
+            });
+            const { data } = await locationWeather(
+                lasInfo.value,
+                losInfo.value,
+            );
+            weather.value = data;
+        };
+
+        onMounted(() => {
+            navigator.geolocation.getCurrentPosition(pos => {
+                lasInfo.value = pos.coords.latitude;
+                losInfo.value = pos.coords.longitude;
+            });
+        });
+
         return {
             weather,
             timeInfo,
@@ -113,6 +140,7 @@ export default defineComponent({
             onClickLogout,
             isDark,
             onClickDark,
+            onClickLocation,
         };
     },
 });
