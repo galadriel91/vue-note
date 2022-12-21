@@ -22,13 +22,17 @@ const getWeatherInfo = () => {
     );
 };
 
-export const getPage = () => async () => {
+export const getPage = () => async (to: RouteLocationNormalizedLoaded) => {
     const common = useCommon();
     const post = usePost();
     const { ON_LOADING } = common;
-    const { FETCH_NOTE } = post;
+    const { FETCH_NOTE, SEARCH_NOTE } = post;
     ON_LOADING();
-    await FETCH_NOTE();
+    if (to.name !== 'search') {
+        await FETCH_NOTE();
+    } else {
+        await SEARCH_NOTE(to.params.keyword as string);
+    }
     try {
         const info = await getWeatherInfo();
         await handleGeoSucces(info);

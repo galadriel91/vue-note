@@ -66,7 +66,7 @@ export default [
         path: '/search/:keyword',
         name: 'search',
         component: () => import('@/pages/SearchPage.vue'),
-        // beforeEnter: getDetailNote(),
+        beforeEnter: getPage(),
         meta: { title: 'Search', search: false, header: false, auth: true },
     },
 ];

@@ -21,6 +21,18 @@ export const usePost = defineStore('items', {
             const { data } = await fetchNote();
             this.posts = data.posts;
         },
+        async SEARCH_NOTE(keyword: string) {
+            const { data } = await fetchNote();
+            // console.log(data.posts);
+            const search = data.posts.filter((v: any) => {
+                if (v.title.includes(keyword) || v.contents.includes(keyword)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            this.posts = search;
+        },
         async ADD_NOTE(note: AddItem) {
             const { data } = await addNote(note);
             console.log(data);
