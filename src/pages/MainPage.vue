@@ -1,4 +1,5 @@
 <template>
+    <NoteSearch />
     <NoteWeather />
     <ul>
         <NoteItem v-for="(post, index) in posts" :item="post" :key="index" />
@@ -12,11 +13,13 @@ import { storeToRefs } from 'pinia';
 import { useLoading } from '@/composables/useLoading';
 import NoteItem from '@/components/note/NoteItem.vue';
 import NoteWeather from '@/components/common/NoteWeather.vue';
+import NoteSearch from '@/components/common/NoteSearch.vue';
 
 export default defineComponent({
     components: {
         NoteItem,
         NoteWeather,
+        NoteSearch,
     },
     setup() {
         const post = usePost();

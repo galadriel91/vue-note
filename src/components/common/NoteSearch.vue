@@ -3,7 +3,7 @@
         <form @submit.prevent="onSubmitForm">
             <input
                 type="text"
-                placeholder="검색 키워드"
+                placeholder="검색 키워드를 입력해 주세요"
                 v-model="searchValue"
             />
             <button type="submit" class="material-symbols-outlined">
