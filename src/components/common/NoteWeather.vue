@@ -49,7 +49,8 @@
                 </button>
             </div>
             <div class="quote">
-                <p>오늘도 힘내자</p>
+                <p class="quoteUser">{{ user }}님</p>
+                <p class="quoteWord">아자아자! 오늘도 힘내자</p>
             </div>
         </div>
     </div>
@@ -135,6 +136,7 @@ export default defineComponent({
             isDark,
             onClickDark,
             onClickLocation,
+            user,
         };
     },
 });

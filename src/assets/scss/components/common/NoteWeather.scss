@@ -54,6 +54,10 @@
         .quote{
             text-align: right;
             margin-top: 1rem; font-size: 1.4rem;
+            &User{
+                font-size: 1.6rem; color: #141b22;
+                margin-bottom: 1rem;
+            }
         }
     }
 }
@@ -110,13 +114,22 @@
         .etcWrap{
             border-top: 1px solid #ddd;
             padding: .5rem 0;
+            display: flex; justify-content: space-between;
             .buttons{
+                order: 2;
                 button{
                     font-size: 2.7rem; margin: 0 .5rem;
                 }
             }
             .quote{
-                display: none;
+                order: 1;
+                &User{
+                    position: relative; top: -.3rem;
+                    margin-bottom: 0;
+                }
+                &Word{
+                    display: none;
+                }
             }
         }
     }
