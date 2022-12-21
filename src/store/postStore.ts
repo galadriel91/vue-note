@@ -6,6 +6,7 @@ import {
     updateEditItem,
     removeItem,
     getWeather,
+    locationWeather,
 } from '@/api';
 import type { AddItem, PostItem, UpdateItem, WeatherItem } from './types';
 
@@ -38,6 +39,10 @@ export const usePost = defineStore('items', {
         },
         async GET_WEATHER() {
             const { data } = await getWeather();
+            this.weather = data;
+        },
+        async SET_WEATHER(lat: number, los: number) {
+            const { data } = await locationWeather(lat, los);
             this.weather = data;
         },
     },

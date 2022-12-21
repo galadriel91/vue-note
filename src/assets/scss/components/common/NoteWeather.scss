@@ -15,7 +15,6 @@
                 }
             }
             span{
-                margin-left: .25rem;
                 font-size: 1.4rem; color: #141b22;
             }
             .locationInfo{
@@ -28,7 +27,7 @@
         .weatherWrap{
             position: relative; width: 11rem;
             img{
-                position: absolute; top: 0rem; left: -2rem;
+                position: absolute; top: 0rem; left: -1rem;
             }
             span{
                 position: absolute; right: 1rem; top: .3rem;

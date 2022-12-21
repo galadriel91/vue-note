@@ -46,7 +46,6 @@ export const getWeather = () => {
 };
 
 export const locationWeather = (lat: number, lon: number) => {
-    console.log(lat, lon);
     return axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6cf4638261aa257f2e15b223f0b61f32&units=metric`,
     );

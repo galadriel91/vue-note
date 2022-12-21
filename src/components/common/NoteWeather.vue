@@ -56,14 +56,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useTime } from '@/composables/useTime';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { deleteCookie } from '@/utils/cookie';
 import { useUser } from '@/store/userStore';
-import { locationWeather } from '@/api';
 
 export default defineComponent({
     setup() {
@@ -74,6 +73,7 @@ export default defineComponent({
         const losInfo = ref(0);
         const userInfo = useUser();
         const timeInfo = useTime();
+        const { SET_WEATHER, GET_WEATHER } = post;
         const { weather } = storeToRefs(post);
         const { token, user } = storeToRefs(userInfo);
         console.log(weather.value);
@@ -114,24 +114,18 @@ export default defineComponent({
         };
         initDark();
 
-        const onClickLocation = async () => {
-            navigator.geolocation.getCurrentPosition(pos => {
-                lasInfo.value = pos.coords.latitude;
-                losInfo.value = pos.coords.longitude;
-            });
-            const { data } = await locationWeather(
-                lasInfo.value,
-                losInfo.value,
+        const onClickLocation = () => {
+            navigator.geolocation.getCurrentPosition(
+                async pos => {
+                    lasInfo.value = pos.coords.latitude;
+                    losInfo.value = pos.coords.longitude;
+                    await SET_WEATHER(lasInfo.value, losInfo.value);
+                },
+                async () => {
+                    await GET_WEATHER();
+                },
             );
-            weather.value = data;
         };
-
-        onMounted(() => {
-            navigator.geolocation.getCurrentPosition(pos => {
-                lasInfo.value = pos.coords.latitude;
-                losInfo.value = pos.coords.longitude;
-            });
-        });
 
         return {
             weather,
