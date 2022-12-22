@@ -1,4 +1,4 @@
-import { getPage, getDetailNote } from './guard';
+import { getPage, getDetailNote, getLoading } from './guard';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
 
@@ -27,12 +27,16 @@ export default [
     },
     {
         path: '/login',
+        name: 'login',
         component: () => import('@/pages/LoginPage.vue'),
+        beforeEnter: getLoading(),
         meta: { title: 'Login', search: false, header: false, isLogin: true },
     },
     {
         path: '/signup',
+        name: 'signup',
         component: () => import('@/pages/SignupPage.vue'),
+        beforeEnter: getLoading(),
         meta: { title: 'SignUp', search: false, header: false, isLogin: true },
     },
     {

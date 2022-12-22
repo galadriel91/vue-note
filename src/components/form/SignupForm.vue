@@ -1,6 +1,10 @@
 <template>
     <div class="formContainer">
-        <img src="@/assets/images/gondor.png" alt="" />
+        <img
+            src="@/assets/images/note.png"
+            alt="노트 로고 이미지"
+            @load="offLoading"
+        />
         <form @submit.prevent="onSubmitForm">
             <div>
                 <i class="material-symbols-outlined">mail</i>
@@ -45,12 +49,15 @@ import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
 import { useValid } from '@/composables/useValid';
+import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     setup() {
+        const common = useCommon();
         const user = useUser();
         const { isError } = storeToRefs(user);
         const { FETCH_SIGNUP } = user;
+        const { OFF_LOADING } = common;
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
@@ -96,6 +103,10 @@ export default defineComponent({
             }
         };
 
+        const offLoading = () => {
+            OFF_LOADING();
+        };
+
         return {
             email,
             password,
@@ -104,6 +115,7 @@ export default defineComponent({
             isValid,
             isError,
             onClickFocus,
+            offLoading,
         };
     },
 });

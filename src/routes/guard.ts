@@ -51,3 +51,10 @@ export const getDetailNote =
         ON_LOADING();
         await FETCH_EDITNOTE(to.params.id as string);
     };
+
+export const getLoading = () => () => {
+    const common = useCommon();
+    const { ON_LOADING } = common;
+    ON_LOADING();
+    return;
+};

@@ -12,10 +12,10 @@ import { defineComponent, computed } from 'vue';
 export default defineComponent({
     setup() {
         const common = useCommon();
-        const { loading, randomBg } = storeToRefs(common);
+        const { loading, randomBg, status } = storeToRefs(common);
 
         const backgroundImageInlineStyle = computed(() => {
-            return `background-image: url("./src/assets/images/bg${randomBg.value}.jpg")`;
+            return `background-image: url("./src/assets/images/${status.value}bg${randomBg.value}.jpg")`;
         });
 
         return {

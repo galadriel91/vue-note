@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useCommon = defineStore('common', {
     state: () => ({
+        status: '',
         loading: false,
         randomBg: Math.ceil(Math.random() * 6),
     }),
@@ -11,6 +12,9 @@ export const useCommon = defineStore('common', {
         },
         OFF_LOADING() {
             this.loading = false;
+        },
+        SET_STATUS(keyword: string) {
+            this.status = keyword;
         },
     },
 });

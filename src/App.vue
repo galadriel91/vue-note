@@ -22,7 +22,21 @@ export default defineComponent({
     setup() {
         const route = useRoute();
         const common = useCommon();
-        const { randomBg } = storeToRefs(common);
+        const { SET_STATUS } = common;
+        const { randomBg, status } = storeToRefs(common);
+
+        const initDark = () => {
+            if (localStorage.dark) {
+                const dark = JSON.parse(localStorage.dark);
+                if (dark) {
+                    SET_STATUS('night');
+                } else {
+                    SET_STATUS('day');
+                }
+            }
+        };
+        initDark();
+
         const isHeader = computed(() => {
             return route.meta.header;
         });
@@ -33,14 +47,18 @@ export default defineComponent({
         };
 
         const backgroundImageInlineStyle = computed(() => {
-            return `background-image: url("./src/assets/images/bg${randomBg.value}.jpg")`;
+            return `background-image: url("./src/assets/images/${status.value}bg${randomBg.value}.jpg")`;
         });
+
         onMounted(() => {
             setScreenSize();
             window.addEventListener('resize', () => setScreenSize());
         });
 
-        return { isHeader, backgroundImageInlineStyle };
+        return {
+            isHeader,
+            backgroundImageInlineStyle,
+        };
     },
 });
 </script>

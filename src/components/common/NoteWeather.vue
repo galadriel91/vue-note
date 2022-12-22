@@ -64,12 +64,14 @@ import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { deleteCookie } from '@/utils/cookie';
 import { useUser } from '@/store/userStore';
+import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     setup() {
         const dark = ref(false);
         const router = useRouter();
         const post = usePost();
+        const common = useCommon();
         const lasInfo = ref(0);
         const losInfo = ref(0);
         const userInfo = useUser();
@@ -77,7 +79,8 @@ export default defineComponent({
         const { SET_WEATHER, GET_WEATHER } = post;
         const { weather } = storeToRefs(post);
         const { token, user } = storeToRefs(userInfo);
-        console.log(weather.value);
+        const { status } = storeToRefs(common);
+        const { SET_STATUS } = common;
 
         const onClickLogout = () => {
             const answer = confirm('로그아웃 하시겠습니까?');
@@ -100,7 +103,14 @@ export default defineComponent({
             dark.value = !dark.value;
             localStorage.setItem('dark', JSON.stringify(dark.value));
             document.body.classList.toggle('dark');
+            if (status.value === 'day') {
+                status.value = 'night';
+            } else {
+                status.value = 'day';
+            }
+            SET_STATUS(status.value);
         };
+
         const isDark = computed(() => {
             return dark.value ? 'light_mode' : 'dark_mode';
         });

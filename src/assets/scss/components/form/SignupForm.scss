@@ -1,7 +1,8 @@
 .formContainer{
     text-align: center;
     img{
-        margin-bottom: 3rem;
+        width: 20rem;
+        margin-bottom: 1rem;
     }
     button{
         width: 30rem; height: 4rem; font-family: 'ChosunGu';
@@ -66,10 +67,10 @@
     .btnWrap{
         margin-top: 1.5rem;
         span{
-            font-size: 1.2rem; margin-right: 1rem; font-weight: bold; color: #000;
+            font-size: 1.2rem; margin-right: 1rem; font-weight: bold; color: #ddd;
         }
         .newBtn{
-            font-size: 1.3rem; font-weight: bold; color: #1d9bf0
+            font-size: 1.4rem; font-weight: bold; color: #1d9bf0
         }
     }
 }

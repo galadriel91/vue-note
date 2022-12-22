@@ -1,7 +1,7 @@
 <template>
     <div class="formContainer">
         <img
-            src="@/assets/images/gondor.png"
+            src="@/assets/images/note.png"
             alt="노트 로고 이미지"
             @load="offLoading"
         />

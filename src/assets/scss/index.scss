@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    font-family: 'ChosunGu'; font-size: 1rem; background: #eaeef6;
+    font-family: 'ChosunGu'; font-size: 1rem;
     box-sizing: border-box; 
 }
 
@@ -27,7 +27,6 @@ input:focus{
 .container{
     display: flex; justify-content: center; align-items: center; flex-direction: column;
     min-height: 100vh;
-    // background-image: url('@/assets/images/bg6.jpg');
     background-size: cover;
     background-attachment: fixed;
 }
