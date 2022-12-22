@@ -10,7 +10,6 @@
 import { defineComponent } from 'vue';
 import { usePost } from '@/store/postStore';
 import { storeToRefs } from 'pinia';
-import { useLoading } from '@/composables/useLoading';
 import NoteItem from '@/components/note/NoteItem.vue';
 import NoteWeather from '@/components/common/NoteWeather.vue';
 import NoteSearch from '@/components/common/NoteSearch.vue';
@@ -24,7 +23,6 @@ export default defineComponent({
     setup() {
         const post = usePost();
         const { posts } = storeToRefs(post);
-        useLoading();
         return {
             posts,
         };

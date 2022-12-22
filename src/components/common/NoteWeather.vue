@@ -5,7 +5,8 @@
                 <div>
                     <img
                         :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`"
-                        alt=""
+                        alt="날씨 이미지"
+                        @load="offLoading"
                     />
                     <span>{{ Math.floor(weather.main.temp) }} °C</span>
                 </div>
@@ -80,7 +81,7 @@ export default defineComponent({
         const { weather } = storeToRefs(post);
         const { token, user } = storeToRefs(userInfo);
         const { status } = storeToRefs(common);
-        const { SET_STATUS } = common;
+        const { SET_STATUS, OFF_LOADING } = common;
 
         const onClickLogout = () => {
             const answer = confirm('로그아웃 하시겠습니까?');
@@ -138,6 +139,10 @@ export default defineComponent({
             );
         };
 
+        const offLoading = () => {
+            OFF_LOADING();
+        };
+
         return {
             weather,
             timeInfo,
@@ -147,6 +152,7 @@ export default defineComponent({
             onClickDark,
             onClickLocation,
             user,
+            offLoading,
         };
     },
 });
