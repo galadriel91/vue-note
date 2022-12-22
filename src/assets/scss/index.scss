@@ -14,8 +14,6 @@ html{
 body{
     font-family: 'ChosunGu'; font-size: 1rem; background: #eaeef6;
     box-sizing: border-box; 
-    background-image: url('@/assets/images/bg.jpg');
-    background-attachment: fixed;
 }
 
 textarea , input{
@@ -27,7 +25,9 @@ input:focus{
 }
 
 .container{
-    padding: 3rem 0; box-sizing: border-box;
     display: flex; justify-content: center; align-items: center; flex-direction: column;
-    min-height: 100vh
+    min-height: 100vh;
+    // background-image: url('@/assets/images/bg6.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }

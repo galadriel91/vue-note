@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" :style="backgroundImageInlineStyle">
         <NoteHeader v-if="isHeader" />
         <RouterView :key="$route.path" />
         <NoteLoading />
@@ -9,6 +9,8 @@
 <script lang="ts">
 import { defineComponent, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useCommon } from '@/store/commonStore';
+import { storeToRefs } from 'pinia';
 import NoteHeader from './components/common/NoteHeader.vue';
 import NoteLoading from './components/common/NoteLoading.vue';
 
@@ -19,6 +21,8 @@ export default defineComponent({
     },
     setup() {
         const route = useRoute();
+        const common = useCommon();
+        const { randomBg } = storeToRefs(common);
         const isHeader = computed(() => {
             return route.meta.header;
         });
@@ -28,12 +32,15 @@ export default defineComponent({
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         };
 
+        const backgroundImageInlineStyle = computed(() => {
+            return `background-image: url("./src/assets/images/bg${randomBg.value}.jpg")`;
+        });
         onMounted(() => {
             setScreenSize();
             window.addEventListener('resize', () => setScreenSize());
         });
 
-        return { isHeader };
+        return { isHeader, backgroundImageInlineStyle };
     },
 });
 </script>
