@@ -1,3 +1,38 @@
+body.dark{
+    .postWrap{
+        background: #141b22;
+        .postLeft{
+            .titleWrap{
+                h2{
+                    color: #fff;
+                }
+            }
+            .contentWrap{
+                border-bottom: 1px solid #ddd;
+                p{
+                    color: #c1c1c1;
+                }
+                .dateWrap{
+                    span{
+                        color: #c1c1c1;
+                    }
+                }
+            }
+        }
+        .postRight{
+            button{
+                border: 1px solid #fff; color: #fff;
+            }
+            .buttonWrap{
+                button{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+
 .postWrap{
     width: 50rem; padding: 2rem; 
     background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);

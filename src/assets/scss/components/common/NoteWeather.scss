@@ -1,3 +1,51 @@
+body.dark{
+    .weatherItem{
+        background: #141b22;
+        .timeWrap{
+            .timeInfo{
+                h3{
+                    color: #fff;
+                    span{
+                        color: #ddd;
+                    }
+                }
+                span{
+                    color: #ddd;
+                }
+                .locationInfo{
+                    span{
+                        color: #ddd;
+                    }
+                }
+            }
+            .weatherWrap{
+                img{
+                }
+                span{
+                    color: #fff;
+                }
+            }
+        }
+        .etcWrap{
+            .buttons{
+                button{
+                    color: #ddd; 
+                    &:hover{
+                        color: #1d9bf0;
+                    }
+                }
+            }
+            .quote{
+                color: #ddd;
+                &User{
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}
+
+
 .weatherItem{
     display: flex; justify-content: space-between;
     width: 50rem; height: 12rem; padding: 2rem; box-sizing: border-box;
@@ -27,6 +75,7 @@
         .weatherWrap{
             position: relative; width: 11rem;
             img{
+                // background: blue;
                 position: absolute; top: 0rem; left: -1rem;
             }
             span{

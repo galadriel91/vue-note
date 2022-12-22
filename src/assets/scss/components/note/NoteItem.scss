@@ -1,3 +1,33 @@
+body.dark{
+    .noteItem{
+        background: #141b22;
+        .contentWrap{
+            &Title{
+                color: #fff;
+            }
+            &Content{
+                p{
+                    color: #c1c1c1;
+                }
+            }
+        }
+        .contentInfoWrap{
+            .dateWrap{
+                span{
+                    color: #c1c1c1;
+                }
+            }
+            button{
+                color: #c1c1c1;
+            }
+        }
+    }
+}
+
+
+
+
+
 .noteItem{
     position: relative; padding: 1.5rem; width: 100%;
     margin-bottom: 2rem;  box-sizing: border-box;
@@ -6,16 +36,12 @@
     button{
         cursor: pointer; background: none;
     }
-    
     .contentWrap{
         box-sizing: border-box; cursor: pointer;
         &Title{
             width: 100%; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap;
             margin-bottom: 1rem;
             font-size: 1.9rem; font-weight: normal; word-break: break-all; color: #141b22; 
-            &.complete{
-                text-decoration: line-through; color: #999;
-            }
         }
         &Content{
             p{
