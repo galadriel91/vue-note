@@ -1,3 +1,48 @@
+body.dark{
+    .inputWrap{
+        background: #141b22; 
+        form{
+            .formWrap{
+                label{
+                    font-size: 1.4rem; color: #fff;
+                }
+                input{
+                    border: 1px solid #dee2e6; 
+                    background: #141b22;
+                    color: #ddd; 
+                    &:focus{
+                        outline: none;
+                        border-color: #1d9bf0;
+                    }
+                    &::placeholder{
+                        color: #ddd; 
+                    }
+                }
+                textarea{
+                    background: #141b22;
+                    border: 1px solid #dee2e6; color: #ddd;
+                    &::placeholder{
+                        color: #ddd; 
+                    }
+                    &:focus{
+                        border-color: #1d9bf0;
+                    }
+                }
+            }
+            .infoWrap{
+                .dateWrap{
+                    span{
+                        color: #ddd;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
 .inputWrap{
     width: 50rem; padding: 2rem 0;
     background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
