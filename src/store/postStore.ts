@@ -19,19 +19,32 @@ export const usePost = defineStore('items', {
     actions: {
         async FETCH_NOTE() {
             const { data } = await fetchNote();
-            this.posts = data.posts;
+            const sortItem = data.posts.sort(
+                (a: PostItem, b: PostItem) =>
+                    Number(new Date(b.updatedAt.slice(0, 10))) -
+                    Number(new Date(a.updatedAt.slice(0, 10))),
+            );
+            this.posts = sortItem;
         },
         async SEARCH_NOTE(keyword: string) {
             const { data } = await fetchNote();
-            // console.log(data.posts);
             const search = data.posts.filter((v: any) => {
-                if (v.title.includes(keyword) || v.contents.includes(keyword)) {
+                if (
+                    v.title.includes(keyword) ||
+                    v.contents.includes(keyword) ||
+                    v.updatedAt.includes(keyword)
+                ) {
                     return true;
                 } else {
                     return false;
                 }
             });
-            this.posts = search;
+            const sortItem = search.sort(
+                (a: PostItem, b: PostItem) =>
+                    Number(new Date(b.updatedAt.slice(0, 10))) -
+                    Number(new Date(a.updatedAt.slice(0, 10))),
+            );
+            this.posts = sortItem;
         },
         async ADD_NOTE(note: AddItem) {
             const { data } = await addNote(note);
