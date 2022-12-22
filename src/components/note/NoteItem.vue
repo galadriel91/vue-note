@@ -37,6 +37,7 @@ import type { PostItem } from '@/store/types';
 import { useDate } from '@/composables/useDate';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
+import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     props: {
@@ -48,7 +49,9 @@ export default defineComponent({
     setup(props) {
         const router = useRouter();
         const post = usePost();
-        const { REMOVE_NOTE } = post;
+        const common = useCommon();
+        const { REMOVE_NOTE, FETCH_NOTE } = post;
+        const { ON_LOADING, OFF_LOADING } = common;
         const DATE = useDate(props.item);
         const isUpdate = computed(() => {
             return props.item.createdAt !== props.item.updatedAt;
@@ -59,8 +62,16 @@ export default defineComponent({
         const onClickEditPage = () => {
             router.push(`/edit/${props.item._id}`);
         };
-        const onClickRemove = () => {
-            REMOVE_NOTE(props.item._id);
+        const onClickRemove = async () => {
+            const deleteAllow = confirm('노트를 삭제 하시겠습니까?');
+            if (deleteAllow) {
+                ON_LOADING();
+                await REMOVE_NOTE(props.item._id);
+                await FETCH_NOTE();
+                OFF_LOADING();
+            } else {
+                return;
+            }
         };
 
         return {

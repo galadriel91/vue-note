@@ -21,14 +21,14 @@ export const usePost = defineStore('items', {
             const { data } = await fetchNote();
             const sortItem = data.posts.sort(
                 (a: PostItem, b: PostItem) =>
-                    Number(new Date(b.updatedAt.slice(0, 10))) -
-                    Number(new Date(a.updatedAt.slice(0, 10))),
+                    Number(new Date(b.updatedAt)) -
+                    Number(new Date(a.updatedAt)),
             );
             this.posts = sortItem;
         },
         async SEARCH_NOTE(keyword: string) {
             const { data } = await fetchNote();
-            const search = data.posts.filter((v: any) => {
+            const search = data.posts.filter((v: PostItem) => {
                 if (
                     v.title.includes(keyword) ||
                     v.contents.includes(keyword) ||
@@ -41,8 +41,8 @@ export const usePost = defineStore('items', {
             });
             const sortItem = search.sort(
                 (a: PostItem, b: PostItem) =>
-                    Number(new Date(b.updatedAt.slice(0, 10))) -
-                    Number(new Date(a.updatedAt.slice(0, 10))),
+                    Number(new Date(b.updatedAt)) -
+                    Number(new Date(a.updatedAt)),
             );
             this.posts = sortItem;
         },
@@ -59,8 +59,7 @@ export const usePost = defineStore('items', {
             console.log(data);
         },
         async REMOVE_NOTE(id: string) {
-            const { data } = await removeItem(id);
-            console.log(data);
+            await removeItem(id);
         },
         async GET_WEATHER() {
             const { data } = await getWeather();

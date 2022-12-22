@@ -19,7 +19,7 @@ export const useDate = (note: PostItem) => {
         date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
 
     const mainDate = computed(() => {
-        if (route.name === 'main') {
+        if (route.name === 'main' || route.name === 'search') {
             return `${year}-${month}-${day} (${days})`;
         } else {
             return `${year}-${month}-${day} ${hours}:${minutes} (${days})`;

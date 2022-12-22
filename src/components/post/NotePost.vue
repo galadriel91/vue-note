@@ -64,10 +64,10 @@ export default defineComponent({
         const onClickEdit = () => {
             router.push(`/edit/${props.item._id}`);
         };
-        const onClickRemove = () => {
-            const result = confirm('노트를 삭제하시겠습니까?');
+        const onClickRemove = async () => {
+            const result = confirm('노트를 삭제 하시겠습니까?');
             if (result) {
-                REMOVE_NOTE(props.item._id);
+                await REMOVE_NOTE(props.item._id);
                 onClickMain();
             }
         };
