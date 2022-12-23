@@ -1,10 +1,27 @@
+body.dark{
+    .resultWrap{
+        background: #141b22;
+        h3{
+            color: #fff;
+            span{
+                color: #ddd;
+            }
+        }
+        p{
+            color: #ddd;
+        }
+    }
+}
+
+
 ul{
     width: 50rem;
     border-radius: .5rem; 
 }
 
 .resultWrap{
-    text-align: center;
+    width: 50rem; height: 10rem; background: #fff; border-radius: .5rem;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
     h3{
         margin-bottom: 1rem;
         font-weight: normal;
@@ -24,6 +41,6 @@ ul{
         width: 100%; margin: 0 auto;
     }
     .resultWrap{
-        margin-top: 1rem;
+        width: 95%; margin-top: 1rem auto 0; height: 8rem;
     }
 }

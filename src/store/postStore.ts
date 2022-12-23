@@ -19,13 +19,17 @@ export const usePost = defineStore('items', {
     }),
     actions: {
         async FETCH_NOTE() {
-            const { data } = await fetchNote();
-            const sortItem = data.posts.sort(
-                (a: PostItem, b: PostItem) =>
-                    Number(new Date(b.updatedAt)) -
-                    Number(new Date(a.updatedAt)),
-            );
-            this.posts = sortItem;
+            try {
+                const { data } = await fetchNote();
+                const sortItem = data.posts.sort(
+                    (a: PostItem, b: PostItem) =>
+                        Number(new Date(b.updatedAt)) -
+                        Number(new Date(a.updatedAt)),
+                );
+                this.posts = sortItem;
+            } catch (err: any) {
+                this.router.push('/404');
+            }
         },
         async SEARCH_NOTE(keyword: string) {
             const { data } = await fetchNote();
