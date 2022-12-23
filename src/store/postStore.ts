@@ -15,6 +15,7 @@ export const usePost = defineStore('items', {
         posts: [] as PostItem[],
         edit: {} as PostItem,
         weather: {} as WeatherItem,
+        isError: '',
     }),
     actions: {
         async FETCH_NOTE() {
@@ -47,16 +48,44 @@ export const usePost = defineStore('items', {
             this.posts = sortItem;
         },
         async ADD_NOTE(note: AddItem) {
-            const { data } = await addNote(note);
-            console.log(data);
+            try {
+                await addNote(note);
+            } catch (err: any) {
+                console.log(err);
+                if (err.response) {
+                    if (err.response.status === 400) {
+                        this.isError = '같은 이름의 게시물이 이미 존재합니다';
+                    } else {
+                        this.isError =
+                            '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                    }
+                } else {
+                    this.isError =
+                        '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                }
+            }
         },
         async FETCH_EDITNOTE(id: string) {
             const { data } = await fetchEditItem(id);
             this.edit = data;
         },
         async UPDATE_EDITNOTE(info: UpdateItem) {
-            const { data } = await updateEditItem(info);
-            console.log(data);
+            try {
+                await updateEditItem(info);
+            } catch (err: any) {
+                console.log(err);
+                if (err.response) {
+                    if (err.response.status === 400) {
+                        this.isError = '같은 이름의 게시물이 이미 존재합니다';
+                    } else {
+                        this.isError =
+                            '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                    }
+                } else {
+                    this.isError =
+                        '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                }
+            }
         },
         async REMOVE_NOTE(id: string) {
             await removeItem(id);

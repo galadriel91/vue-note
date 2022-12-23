@@ -9,6 +9,7 @@
                         type="text"
                         :placeholder="item.title"
                         v-model="title"
+                        @focus="onClickFocus"
                         ref="titleInput"
                     />
                 </div>
@@ -48,6 +49,9 @@
                 </div>
             </div>
         </form>
+        <div v-if="isError" class="handleError">
+            {{ isError }}
+        </div>
     </div>
 </template>
 
@@ -57,6 +61,7 @@ import type { PostItem } from '@/store/types';
 import { useDate } from '@/composables/useDate';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
 export default defineComponent({
     props: {
@@ -68,6 +73,7 @@ export default defineComponent({
     setup(props) {
         const post = usePost();
         const { UPDATE_EDITNOTE } = post;
+        const { isError } = storeToRefs(post);
         const router = useRouter();
         const title = ref('');
         const content = ref('');
@@ -93,7 +99,9 @@ export default defineComponent({
                     title: title.value,
                     contents: content.value,
                 });
-                onClickMain();
+                if (!isError.value) {
+                    onClickMain();
+                }
             } else {
                 alert('다시 한번 확인해 주세요');
                 inputFocus();
@@ -104,6 +112,12 @@ export default defineComponent({
             inputFocus();
         });
 
+        const onClickFocus = () => {
+            if (isError) {
+                isError.value = '';
+            }
+        };
+
         return {
             title,
             content,
@@ -112,6 +126,8 @@ export default defineComponent({
             onSubmitForm,
             DATE,
             isUpdate,
+            isError,
+            onClickFocus,
         };
     },
 });

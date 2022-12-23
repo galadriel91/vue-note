@@ -9,6 +9,7 @@
                         type="text"
                         placeholder="제목을 입력해 주세요"
                         v-model="title"
+                        @focus="onClickFocus"
                         ref="titleInput"
                     />
                 </div>
@@ -48,6 +49,9 @@
                     </button>
                 </div>
             </div>
+            <div v-if="isError" class="handleError">
+                {{ isError }}
+            </div>
         </form>
     </div>
 </template>
@@ -56,13 +60,14 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
 export default defineComponent({
     setup() {
         const router = useRouter();
         const post = usePost();
         const { ADD_NOTE } = post;
-
+        const { isError } = storeToRefs(post);
         const title = ref('');
         const titleInput = ref<HTMLInputElement>();
         const content = ref('');
@@ -75,7 +80,9 @@ export default defineComponent({
                     title: title.value,
                     contents: content.value,
                 });
-                onClickMain();
+                if (!isError.value) {
+                    onClickMain();
+                }
             } else {
                 alert('다시 한번 확인해 주세요');
             }
@@ -98,6 +105,12 @@ export default defineComponent({
             inputFocus();
         });
 
+        const onClickFocus = () => {
+            if (isError) {
+                isError.value = '';
+            }
+        };
+
         return {
             title,
             titleInput,
@@ -105,6 +118,8 @@ export default defineComponent({
             onSubmitForm,
             onClickMain,
             time,
+            isError,
+            onClickFocus,
         };
     },
 });
