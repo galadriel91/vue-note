@@ -33,11 +33,11 @@
 
 <script lang="ts">
 import { defineComponent, type PropType, computed } from 'vue';
-import type { PostItem } from '@/store/types';
 import { useDate } from '@/composables/useDate';
+import type { PostItem } from '@/store/types';
+import { useCommon } from '@/store/commonStore';
 import { usePost } from '@/store/postStore';
 import { useRouter } from 'vue-router';
-import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     props: {

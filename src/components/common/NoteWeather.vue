@@ -77,6 +77,7 @@ export default defineComponent({
         const losInfo = ref(0);
         const userInfo = useUser();
         const timeInfo = useTime();
+
         const { SET_WEATHER, GET_WEATHER } = post;
         const { weather } = storeToRefs(post);
         const { token, user } = storeToRefs(userInfo);

@@ -1,6 +1,4 @@
 import { getPage, getDetailNote, getLoading } from './guard';
-import { useUser } from '@/store/userStore';
-import { storeToRefs } from 'pinia';
 
 export default [
     {
@@ -10,18 +8,11 @@ export default [
     {
         path: '/404',
         component: () => import('@/pages/NotPage.vue'),
-        meta: { title: 'Error', search: false, header: false },
+        meta: { title: 'Error', header: false },
     },
     {
         path: '/',
         redirect: () => {
-            // const user = useUser();
-            // const { token } = storeToRefs(user);
-            // if (token.value) {
-            //     return '/main';
-            // } else {
-            //     return '/login';
-            // }
             return '/login';
         },
     },
@@ -30,14 +21,14 @@ export default [
         name: 'login',
         component: () => import('@/pages/LoginPage.vue'),
         beforeEnter: getLoading(),
-        meta: { title: 'Login', search: false, header: false, isLogin: true },
+        meta: { title: 'Login', header: false, isLogin: true },
     },
     {
         path: '/signup',
         name: 'signup',
         component: () => import('@/pages/SignupPage.vue'),
         beforeEnter: getLoading(),
-        meta: { title: 'SignUp', search: false, header: false, isLogin: true },
+        meta: { title: 'SignUp', header: false, isLogin: true },
     },
     {
         path: '/main',
@@ -50,27 +41,27 @@ export default [
         path: '/create',
         name: 'create',
         component: () => import('@/pages/CreatePage.vue'),
-        meta: { title: 'Create', search: false, header: true, auth: true },
+        meta: { title: 'Create', header: true, auth: true },
     },
     {
         path: '/edit/:id',
         name: 'edit',
         component: () => import('@/pages/EditPage.vue'),
         beforeEnter: getDetailNote(),
-        meta: { title: 'Edit', search: false, header: true, auth: true },
+        meta: { title: 'Edit', header: true, auth: true },
     },
     {
         path: '/note/:id',
         name: 'note',
         component: () => import('@/pages/NotePage.vue'),
         beforeEnter: getDetailNote(),
-        meta: { title: 'Note', search: false, header: true, auth: true },
+        meta: { title: 'Note', header: true, auth: true },
     },
     {
         path: '/search/:keyword',
         name: 'search',
         component: () => import('@/pages/SearchPage.vue'),
         beforeEnter: getPage(),
-        meta: { title: 'Search', search: false, header: false, auth: true },
+        meta: { title: 'Search', header: false, auth: true },
     },
 ];

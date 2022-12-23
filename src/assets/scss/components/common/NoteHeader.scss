@@ -1,5 +1,13 @@
-
-
+body.dark{
+    header{
+        h1{
+            color: #fff;
+        }
+        button{
+            color: #fff;
+        }
+    }
+}
 
 header{
     position: relative; width: 50rem;
@@ -15,7 +23,7 @@ header{
         color: #000; font-size: 3rem; background: none;
         line-height: 3rem; cursor: pointer; transition: all .5s;
         &:hover{
-            color: #42b883;
+            color: #1d9bf0;
         }
     }
 }

@@ -4,24 +4,6 @@
         <RouterView :key="$route.path" />
         <NoteLoading />
     </div>
-    <img
-        class="loadingimg"
-        :src="`/assets/daybg${randomBg}.jpg`"
-        alt="이미지"
-        @load="offLoading"
-    />
-    <img
-        class="loadingimg"
-        :src="`/assets/nightbg${randomBg}.jpg`"
-        alt="이미지"
-        @load="offLoading"
-    />
-    <img
-        class="loadingimg"
-        src="./assets/images/note.png"
-        alt="이미지"
-        @load="offLoading"
-    />
 </template>
 
 <script lang="ts">
