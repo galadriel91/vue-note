@@ -47,7 +47,7 @@ export default defineComponent({
         };
 
         const backgroundImageInlineStyle = computed(() => {
-            return `background-image: url("./src/assets/images/${status.value}bg${randomBg.value}.jpg")`;
+            return `background-image: url("./assets/${status.value}bg${randomBg.value}.jpg")`;
         });
 
         onMounted(() => {

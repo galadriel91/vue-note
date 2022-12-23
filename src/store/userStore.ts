@@ -29,8 +29,14 @@ export const useUser = defineStore('user', {
                 this.router.push('/main');
             } catch (err: any) {
                 OFF_LOADING();
-                if (err.response.status === 409) {
-                    this.isError = '이메일이 존재하여 회원 가입이 실패했습니다';
+                if (err.response) {
+                    if (err.response.status === 409) {
+                        this.isError =
+                            '이메일이 존재하여 회원 가입이 실패했습니다';
+                    } else {
+                        this.isError =
+                            '서버에 문제가 있어 회원가입하지 못했습니다.';
+                    }
                 } else {
                     this.isError =
                         '서버에 문제가 있어 회원가입하지 못했습니다.';
@@ -50,8 +56,14 @@ export const useUser = defineStore('user', {
                 this.router.push('/main');
             } catch (err: any) {
                 OFF_LOADING();
-                if (err.response.status === 401) {
-                    this.isError = '이메일이나 비밀번호를 다시 확인해주세요';
+                if (err.response) {
+                    if (err.response.status === 401) {
+                        this.isError =
+                            '이메일이나 비밀번호를 다시 확인해주세요';
+                    } else {
+                        this.isError =
+                            '서버에 문제가 있어 로그인하지 못했습니다.';
+                    }
                 } else {
                     this.isError = '서버에 문제가 있어 로그인하지 못했습니다.';
                 }

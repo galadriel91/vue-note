@@ -1,5 +1,5 @@
 <template>
-    <div class="loadingWrap" v-if="loading" :style="backgroundImageInlineStyle">
+    <div class="loadingWrap" v-if="loading">
         <div class="loader"></div>
     </div>
 </template>
@@ -7,20 +7,15 @@
 <script lang="ts">
 import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
-import { defineComponent, computed } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
     setup() {
         const common = useCommon();
-        const { loading, randomBg, status } = storeToRefs(common);
-
-        const backgroundImageInlineStyle = computed(() => {
-            return `background-image: url("./src/assets/images/${status.value}bg${randomBg.value}.jpg")`;
-        });
+        const { loading } = storeToRefs(common);
 
         return {
             loading,
-            backgroundImageInlineStyle,
         };
     },
 });

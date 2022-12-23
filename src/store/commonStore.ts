@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useCommon = defineStore('common', {
     state: () => ({
-        status: '',
+        status: 'day',
         loading: false,
         randomBg: Math.ceil(Math.random() * 6),
     }),
