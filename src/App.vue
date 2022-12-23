@@ -6,14 +6,26 @@
     </div>
     <img
         class="loadingimg"
-        :src="`/assets/${status}bg${randomBg}.jpg`"
+        :src="`/assets/daybg${randomBg}.jpg`"
+        alt="이미지"
+        @load="offLoading"
+    />
+    <img
+        class="loadingimg"
+        :src="`/assets/nightbg${randomBg}.jpg`"
+        alt="이미지"
+        @load="offLoading"
+    />
+    <img
+        class="loadingimg"
+        src="./assets/images/note.png"
         alt="이미지"
         @load="offLoading"
     />
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onMounted } from 'vue';
+import { defineComponent, computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
@@ -26,22 +38,11 @@ export default defineComponent({
         NoteHeader,
     },
     setup() {
+        const isLoading = ref([] as boolean[]);
         const route = useRoute();
         const common = useCommon();
-        const { SET_STATUS, OFF_LOADING } = common;
+        const { OFF_LOADING } = common;
         const { randomBg, status } = storeToRefs(common);
-
-        const initDark = () => {
-            if (localStorage.dark) {
-                const dark = JSON.parse(localStorage.dark);
-                if (dark) {
-                    SET_STATUS('night');
-                } else {
-                    SET_STATUS('day');
-                }
-            }
-        };
-        initDark();
 
         const isHeader = computed(() => {
             return route.meta.header;
@@ -62,7 +63,10 @@ export default defineComponent({
         });
 
         const offLoading = () => {
-            OFF_LOADING();
+            isLoading.value.push(true);
+            if (isLoading.value.length === 3) {
+                OFF_LOADING();
+            }
         };
 
         return {

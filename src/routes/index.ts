@@ -1,6 +1,7 @@
 import { nextTick } from 'vue';
 import { createWebHistory, createRouter } from 'vue-router';
 import { useUser } from '@/store/userStore';
+import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
 import path from './path';
 
@@ -9,9 +10,23 @@ export const router = createRouter({
     routes: path,
 });
 
+const initDark = () => {
+    const common = useCommon();
+    const { SET_STATUS } = common;
+    if (localStorage.dark) {
+        const dark = JSON.parse(localStorage.dark);
+        if (dark) {
+            SET_STATUS('night');
+        } else {
+            SET_STATUS('day');
+        }
+    }
+};
+
 router.beforeEach(to => {
     const user = useUser();
     const { token } = storeToRefs(user);
+    initDark();
     if (to.meta.auth && !token.value) {
         console.log('로그인이 필요합니다');
         return '/login';
