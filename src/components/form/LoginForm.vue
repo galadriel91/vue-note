@@ -1,10 +1,6 @@
 <template>
     <div class="formContainer">
-        <img
-            src="@/assets/images/note.png"
-            alt="노트 로고 이미지"
-            @load="offLoading"
-        />
+        <img src="@/assets/images/note.png" alt="노트 로고 이미지" />
         <form @submit.prevent="onSubmitForm">
             <div>
                 <i class="material-symbols-outlined">mail</i>

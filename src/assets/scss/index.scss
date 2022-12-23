@@ -30,3 +30,11 @@ input:focus{
     background-size: cover;
     background-attachment: fixed;
 }
+
+.loadingimg{
+    position:absolute; 
+    width:0; 
+    height:0; 
+    overflow:hidden; 
+    z-index:-1;
+}

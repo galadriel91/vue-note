@@ -4,6 +4,12 @@
         <RouterView :key="$route.path" />
         <NoteLoading />
     </div>
+    <img
+        class="loadingimg"
+        :src="`/assets/${status}bg${randomBg}.jpg`"
+        alt="이미지"
+        @load="offLoading"
+    />
 </template>
 
 <script lang="ts">
@@ -22,7 +28,7 @@ export default defineComponent({
     setup() {
         const route = useRoute();
         const common = useCommon();
-        const { SET_STATUS } = common;
+        const { SET_STATUS, OFF_LOADING } = common;
         const { randomBg, status } = storeToRefs(common);
 
         const initDark = () => {
@@ -55,9 +61,16 @@ export default defineComponent({
             window.addEventListener('resize', () => setScreenSize());
         });
 
+        const offLoading = () => {
+            OFF_LOADING();
+        };
+
         return {
             isHeader,
             backgroundImageInlineStyle,
+            offLoading,
+            status,
+            randomBg,
         };
     },
 });
