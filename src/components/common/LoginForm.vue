@@ -1,10 +1,6 @@
 <template>
     <div class="formContainer">
-        <img
-            src="@/assets/images/note.png"
-            alt="노트 로고 이미지"
-            @load="offLoading"
-        />
+        <img src="@/assets/images/note.png" alt="노트 로고 이미지" />
         <form @submit.prevent="onSubmitForm">
             <div>
                 <i class="material-symbols-outlined">mail</i>
@@ -38,7 +34,6 @@
 <script lang="ts">
 import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
-import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
 import { useValid } from '@/composables/useValid';
 
@@ -46,10 +41,8 @@ export default defineComponent({
     setup() {
         // UserStore - 로그인 및 에러 관련 정보
         const user = useUser();
-        const common = useCommon();
         const { isError } = storeToRefs(user);
         const { FETCH_LOGIN } = user;
-        const { OFF_LOADING } = common;
         const email = ref('');
         const password = ref('');
 
@@ -93,10 +86,6 @@ export default defineComponent({
             }
         };
 
-        const offLoading = () => {
-            OFF_LOADING();
-        };
-
         return {
             email,
             password,
@@ -104,7 +93,6 @@ export default defineComponent({
             isError,
             isValid,
             onClickFocus,
-            offLoading,
         };
     },
 });

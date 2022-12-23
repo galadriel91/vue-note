@@ -65,7 +65,7 @@ export default defineComponent({
         const offLoading = () => {
             isLoading.value.push(true);
             if (isLoading.value.length === 3) {
-                // OFF_LOADING();
+                OFF_LOADING();
             }
         };
 

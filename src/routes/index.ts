@@ -17,6 +17,7 @@ const initDark = () => {
         const dark = JSON.parse(localStorage.dark);
         if (dark) {
             SET_STATUS('night');
+            document.body.classList.add('dark');
         } else {
             SET_STATUS('day');
         }

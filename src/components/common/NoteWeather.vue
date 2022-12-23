@@ -113,15 +113,12 @@ export default defineComponent({
         };
 
         const isDark = computed(() => {
-            return dark.value ? 'light_mode' : 'dark_mode';
+            return status.value === 'night' ? 'light_mode' : 'dark_mode';
         });
 
         const initDark = () => {
             if (localStorage.dark) {
                 dark.value = JSON.parse(localStorage.dark);
-                if (dark.value == true) {
-                    document.body.classList.add('dark');
-                }
             }
         };
         initDark();
