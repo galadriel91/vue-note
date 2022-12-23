@@ -37,7 +37,7 @@ import { useDate } from '@/composables/useDate';
 import type { PostItem } from '@/store/types';
 import { useCommon } from '@/store/commonStore';
 import { usePost } from '@/store/postStore';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
 export default defineComponent({
     props: {
@@ -48,9 +48,10 @@ export default defineComponent({
     },
     setup(props) {
         const router = useRouter();
+        const route = useRoute();
         const post = usePost();
         const common = useCommon();
-        const { REMOVE_NOTE, FETCH_NOTE } = post;
+        const { REMOVE_NOTE, FETCH_NOTE, SEARCH_NOTE } = post;
         const { ON_LOADING, OFF_LOADING } = common;
         const DATE = useDate(props.item);
         const isUpdate = computed(() => {
@@ -67,7 +68,11 @@ export default defineComponent({
             if (deleteAllow) {
                 ON_LOADING();
                 await REMOVE_NOTE(props.item._id);
-                await FETCH_NOTE();
+                if (route.name === 'search') {
+                    await SEARCH_NOTE(route.params.keyword as string);
+                } else {
+                    await FETCH_NOTE();
+                }
                 OFF_LOADING();
             } else {
                 return;
