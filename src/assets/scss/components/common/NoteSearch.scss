@@ -16,16 +16,25 @@ body.dark{
 }
 
 div{
+    position: relative;
     width: 50rem; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem;
     margin-bottom: 2rem;
+    .homeBtn{
+        position: absolute; top: .3rem; left: .5rem;
+        font-size: 3rem; background: none;  color: #000;
+        cursor: pointer;
+    }
     form{
         display: flex; justify-content: space-between;
         width: 100%;
         height: 4rem; background: #fafafa; border-radius: .5rem;
         input{
             background: #fafafa; border-radius: .5rem;
-            width: 40rem;  text-indent: 2rem;
+            width: 40rem; text-indent: 2rem;
             line-height: 3rem; font-size: 1.5rem; color: #000; 
+            &.isSearch{
+                text-indent: 4rem;
+            }
             &:focus{
                 outline: none;
             }
