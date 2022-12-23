@@ -2,12 +2,17 @@
     <NoteSearch />
     <NoteWeather />
     <ul v-if="posts.length">
-        <NoteItem v-for="(post, index) in posts" :item="post" :key="index" />
+        <NoteItem
+            v-for="(post, index) in posts.slice(showNum, showLimits)"
+            :item="post"
+            :key="index"
+        />
     </ul>
     <div class="resultWrap" v-else>
         <h3>'{{ searchKeyword }}' <span>에 대한</span></h3>
         <p>검색 결과가 없습니다.</p>
     </div>
+    <NotePagi />
 </template>
 
 <script lang="ts">
@@ -20,12 +25,14 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import NoteSearch from '@/components/common/NoteSearch.vue';
 import NoteWeather from '@/components/common/NoteWeather.vue';
 import NoteItem from '@/components/note/NoteItem.vue';
+import NotePagi from '@/components/note/NotePagi.vue';
 
 export default defineComponent({
     components: {
         NoteSearch,
         NoteWeather,
         NoteItem,
+        NotePagi,
     },
     setup() {
         const route = useRoute();
@@ -33,7 +40,7 @@ export default defineComponent({
         const common = useCommon();
         const { ON_LOADING } = common;
         const { SEARCH_NOTE } = post;
-        const { posts } = storeToRefs(post);
+        const { posts, showLimits, showNum } = storeToRefs(post);
         useLoading();
 
         onBeforeRouteUpdate(async to => {
@@ -48,6 +55,8 @@ export default defineComponent({
         return {
             posts,
             searchKeyword,
+            showLimits,
+            showNum,
         };
     },
 });

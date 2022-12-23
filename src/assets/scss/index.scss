@@ -14,20 +14,6 @@ html{
 body{
     font-family: 'ChosunGu'; font-size: 1rem;
     box-sizing: border-box; 
-    &::after{
-        position:absolute; 
-        width:0; 
-        height:0; 
-        overflow:hidden; 
-        z-index:-1;
-        content: 
-        url('../images/daybg1.jpg') url('../images/daybg2.jpg')
-        url('../images/daybg3.jpg') url('../images/daybg4.jpg')
-        url('../images/daybg5.jpg') url('../images/daybg6.jpg')
-        url('../images/nightbg1.jpg') url('../images/nightbg2.jpg')
-        url('../images/nightbg3.jpg') url('../images/nightbg4.jpg')
-        url('../images/nightbg5.jpg') url('../images/nightbg6.jpg')
-    }
 }
 
 textarea , input{

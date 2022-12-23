@@ -16,6 +16,9 @@ export const usePost = defineStore('items', {
         edit: {} as PostItem,
         weather: {} as WeatherItem,
         isError: '',
+        currentPage: 1,
+        showLimits: 2,
+        showNum: 0,
     }),
     actions: {
         async FETCH_NOTE() {
