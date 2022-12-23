@@ -1,5 +1,5 @@
 body.dark{
-    ul{
+    .pagiWrap{
         background: #141414;
         li{
             input{
@@ -22,9 +22,9 @@ body.dark{
 }
 
 
-ul{
+.pagiWrap{
     display: flex; align-items: center; justify-content: center;
-    width: 50rem; height: 5rem; background: #fff; border-radius: .5rem;
+    width: 50rem; height: 5rem; background: #fefefe; border-radius: .5rem;
     li{
         display: flex; align-items: center;
         margin: 0 1rem;
@@ -46,6 +46,17 @@ ul{
             line-height: 5rem;
             &.active{
                 color: #999; cursor: default;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 550px) {
+    .pagiWrap{
+        width: 95%; margin: 0 auto; height: 4rem;
+        li{
+            button{
+                line-height: 4rem;
             }
         }
     }

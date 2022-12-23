@@ -1,5 +1,5 @@
 <template>
-    <ul v-if="totalItems > 1">
+    <ul class="pagiWrap" v-if="totalItems > 1">
         <li>
             <button
                 class="material-symbols-outlined"
