@@ -24,7 +24,3 @@ export default defineComponent({
     },
 });
 </script>
-
-<style lang="scss">
-@import '@/assets/scss/pages/NotePage.scss';
-</style>
