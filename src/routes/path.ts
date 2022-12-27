@@ -41,6 +41,7 @@ export default [
         path: '/create',
         name: 'create',
         component: () => import('@/pages/CreatePage.vue'),
+        beforeEnter: getLoading(),
         meta: { title: 'Create', header: true, auth: true },
     },
     {

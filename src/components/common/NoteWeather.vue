@@ -30,21 +30,28 @@
                 <button
                     class="material-symbols-outlined"
                     @click="onClickLocation"
+                    title="위치 동기화"
                 >
                     location_on
                 </button>
-                <button class="material-symbols-outlined" @click="onClickDark">
+                <button
+                    class="material-symbols-outlined"
+                    @click="onClickDark"
+                    title="다크모드 전환"
+                >
                     {{ isDark }}
                 </button>
                 <button
                     class="material-symbols-outlined"
                     @click="onClickLogout"
+                    title="로그아웃 버튼"
                 >
                     logout
                 </button>
                 <button
                     class="material-symbols-outlined"
                     @click="onClickCreate"
+                    title="노트 생성 버튼"
                 >
                     add
                 </button>
