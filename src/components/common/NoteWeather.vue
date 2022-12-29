@@ -62,6 +62,18 @@
             </div>
         </div>
     </div>
+    <img
+        class="loadingimg"
+        :src="`/assets/daybg${randomBg}.jpg`"
+        alt="이미지"
+        @load="offLoading"
+    />
+    <img
+        class="loadingimg"
+        :src="`/assets/nightbg${randomBg}.jpg`"
+        alt="이미지"
+        @load="offLoading"
+    />
 </template>
 
 <script lang="ts">
@@ -76,6 +88,7 @@ import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     setup() {
+        const isLoading = ref([] as boolean[]);
         const dark = ref(false);
         const router = useRouter();
         const post = usePost();
@@ -88,7 +101,7 @@ export default defineComponent({
         const { SET_WEATHER, GET_WEATHER } = post;
         const { weather } = storeToRefs(post);
         const { token, user } = storeToRefs(userInfo);
-        const { status } = storeToRefs(common);
+        const { status, randomBg } = storeToRefs(common);
         const { SET_STATUS, OFF_LOADING } = common;
 
         const onClickLogout = () => {
@@ -145,7 +158,10 @@ export default defineComponent({
         };
 
         const offLoading = () => {
-            OFF_LOADING();
+            isLoading.value.push(true);
+            if (isLoading.value.length === 3) {
+                OFF_LOADING();
+            }
         };
 
         return {
@@ -158,6 +174,7 @@ export default defineComponent({
             onClickLocation,
             user,
             offLoading,
+            randomBg,
         };
     },
 });
