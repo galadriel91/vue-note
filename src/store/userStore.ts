@@ -21,12 +21,11 @@ export const useUser = defineStore('user', {
             const { ON_LOADING, OFF_LOADING } = common;
             try {
                 ON_LOADING();
-                const { data } = await fetchSignUp(info);
-                this.token = data.token;
-                this.user = data.user.nickname;
-                saveAuthToCookie(data.token);
-                saveUserToCookie(data.user.nickname);
-                this.router.push('/main');
+                await fetchSignUp(info);
+                this.FETCH_LOGIN({
+                    username: info.username,
+                    password: info.password,
+                });
             } catch (err: any) {
                 OFF_LOADING();
                 if (err.response) {
