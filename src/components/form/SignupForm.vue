@@ -31,6 +31,7 @@
                     type="text"
                     placeholder="닉네임"
                     v-model="nickname"
+                    :maxlength="6"
                     :class="{ valid: nickname.length }"
                 />
             </div>

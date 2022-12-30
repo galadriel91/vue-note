@@ -8,7 +8,7 @@
                         alt="날씨 이미지"
                         @load="offLoading"
                     />
-                    <span>{{ Math.floor(weather.main.temp) }} °C</span>
+                    <span>{{ isTemp }} °C</span>
                 </div>
             </div>
             <div class="timeInfo">
@@ -164,6 +164,14 @@ export default defineComponent({
             }
         };
 
+        const isTemp = computed(() => {
+            if (weather.value.main.temp < 0) {
+                return Math.ceil(weather.value.main.temp);
+            } else {
+                return Math.floor(weather.value.main.temp);
+            }
+        });
+
         return {
             weather,
             timeInfo,
@@ -175,6 +183,7 @@ export default defineComponent({
             user,
             offLoading,
             randomBg,
+            isTemp,
         };
     },
 });
