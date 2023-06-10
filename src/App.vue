@@ -1,5 +1,5 @@
 <template>
-    <div class="container" :style="backgroundImageInlineStyle">
+    <div class="container">
         <NoteHeader v-if="isHeader" />
         <RouterView :key="$route.path" />
         <NoteLoading />

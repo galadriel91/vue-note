@@ -10,12 +10,12 @@ export default [
         component: () => import('@/pages/NotPage.vue'),
         meta: { title: 'Error', header: false },
     },
-    // {
-    //     path: '/',
-    //     redirect: () => {
-    //         return '/login';
-    //     },
-    // },
+    {
+        path: '/',
+        redirect: () => {
+            return '/login';
+        },
+    },
     {
         path: '/',
         redirect: () => {
@@ -26,7 +26,7 @@ export default [
         path: '/intro',
         name: 'intro',
         component: () => import('@/pages/IntroPage.vue'),
-        // beforeEnter: getPage(),
+        beforeEnter: getPage(),
         meta: { title: 'Intro' },
     },
     {

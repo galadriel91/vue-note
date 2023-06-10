@@ -1,10 +1,6 @@
 <template>
     <div class="formContainer">
-        <img
-            src="@/assets/images/note.png"
-            alt="노트 로고 이미지"
-            @load="offLoading"
-        />
+        <h2>Simple Note</h2>
         <form @submit.prevent="onSubmitForm">
             <div>
                 <i class="material-symbols-outlined">mail</i>
@@ -62,6 +58,8 @@ export default defineComponent({
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
+
+        OFF_LOADING();
 
         const isCheck = ref(true);
         const isValid: ComputedRef<boolean> = computed(() => {

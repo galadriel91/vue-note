@@ -20,7 +20,8 @@ body.dark{
                 }
                 textarea{
                     background: #141b22;
-                    border: 1px solid #dee2e6; color: #ddd;
+                    border: 1px solid #dee2e6; 
+                    color: #ddd;
                     &::placeholder{
                         color: #ddd; 
                     }
@@ -42,9 +43,11 @@ body.dark{
 
 
 .inputWrap{
-    padding: 2rem 0; width: 50rem;
-    background: #fff; box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
+    padding: 2rem 0; 
+    width: 50rem;
+    background: #fff; 
     border-radius: .5rem;
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2);
     form{
         .formWrap{
             padding: 0 2rem 2rem;
@@ -52,8 +55,8 @@ body.dark{
                 font-size: 1.4rem; color: #222;
             }
             input{
-                margin-top: 1rem; margin-bottom: 2rem;
-                width: 100%; padding: 1rem; box-sizing: border-box;
+                margin-top: 1rem; margin-bottom: 2rem; padding: 1rem; box-sizing: border-box;
+                width: 100%;
                 border: 1px solid #dee2e6; border-radius: .5rem;
                 font-size: 1.4rem; color: #000; 
                 &:focus{
@@ -65,43 +68,51 @@ body.dark{
                 }
             }
             textarea{
-                margin-top: 1rem;
-                width: 100%; min-height: 10em; padding: 1rem; box-sizing: border-box;
-                border: 1px solid #dee2e6; border-radius: .5rem; color: #000;
-                font-size: 1.4rem; line-height: 2.6rem; overflow: hidden; 
+                overflow: hidden; 
+                margin-top: 1rem; padding: 1rem; box-sizing: border-box;
+                width: 100%; min-height: 10em; 
+                border: 1px solid #dee2e6; border-radius: .5rem; 
+                line-height: 2.6rem;
+                font-size: 1.4rem; color: #000;   
                 resize: none;
                 &::placeholder{
                     color: #929292; 
                 }
                 &:focus{
-                    outline: none;
                     border-color: #1d9bf0;
+                    outline: none;
                 }
             }
         }
         .infoWrap{
-            padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;
+            padding: 0 2rem; 
+            display: flex; justify-content: space-between; align-items: center;
             .dateWrap{
                 display: flex; align-items: center;
+                font-size: 1.4rem;
                 span{
                     &:nth-child(1){
                         position: relative; top: -.1rem;
                         margin-right: .5rem;
                     }
                 }
-                font-size: 1.4rem;
             }
             .buttonWrap{
                 display: flex; justify-content: flex-end;
                 button{
-                    display: inline-block; width: 10rem; height: 4rem; border-radius: .5rem;
-                    font-size: 1.4rem; cursor: pointer;
+                    display: inline-block; 
+                    width: 10rem; height: 4rem; 
+                    border-radius: .5rem;
+                    font-size: 1.4rem; 
+                    cursor: pointer;
                     &:nth-child(1) , &:nth-child(2){
                         margin-right: 1.5rem;
-                        background: crimson; color: #fff;
+                        background: crimson; 
+                        color: #fff;
                     }
                     &:nth-child(3) , &:nth-child(4){
-                        background: #1d9bf0; color: #fff;
+                        background: #1d9bf0; 
+                        color: #fff;
                     }
                 }
                 button.moBtn{
@@ -110,15 +121,16 @@ body.dark{
             }
         }
         .handleError{
-            margin-top: 1.5rem; font-size: 1.4rem; color: crimson;
-            padding-left: 2.2rem;
+            margin-top: 1.5rem; padding-left: 2.2rem;
+            font-size: 1.4rem; color: crimson;
         }
     }
 }
 
 @media all and (max-width: 550px) {
     .inputWrap{
-        width: 95%; margin: 0 auto; padding: 1.5rem 0;
+        margin: 0 auto; padding: 1.5rem 0;
+        width: 95%;
         form{
             .formWrap{
                 padding: 0 1.5rem 1.5rem;
@@ -144,7 +156,8 @@ body.dark{
             .infoWrap{
                 .buttonWrap{
                     button{
-                        width: 4.5rem; height: 3rem; font-size: 2.5rem;
+                        width: 4.5rem; height: 3rem; 
+                        font-size: 2.5rem;
                         &:nth-child(2){
                             margin-right: 1rem;
                         }

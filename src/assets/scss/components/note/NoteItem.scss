@@ -26,33 +26,40 @@ body.dark{
 
 
 .noteItem{
-    position: relative; padding: 1.5rem; width: 100%;
-    margin-bottom: 2rem;  box-sizing: border-box;
-    box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); border-radius: .5rem; 
+    position: relative; 
+    padding: 1.5rem; margin-bottom: 2rem;  box-sizing: border-box;
+    width: 100%;
     background: #fefefe;
+    border-radius: .5rem; 
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,0.2); 
     button{
-        cursor: pointer; background: none;
+        background: none;
+        cursor: pointer; 
     }
     .contentWrap{
         box-sizing: border-box; cursor: pointer;
         &Title{
-            width: 100%; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap;
+            overflow-x: hidden; 
             margin-bottom: 1rem;
-            font-size: 1.9rem; font-weight: normal; word-break: break-all; color: #141b22; 
+            width: 100%; 
+            text-overflow: ellipsis; white-space: nowrap; word-break: break-all; 
+            font-size: 1.9rem; font-weight: normal; color: #141b22; 
         }
         &Content{
             p{
-                width: 100%; height: 7rem;
-                font-size: 1.5rem; line-height: 2.2rem; color: #a0a0a0;
-                overflow: hidden; text-overflow: ellipsis;
+                overflow: hidden; 
                 display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+                width: 100%; height: 7rem;
+                line-height: 2.2rem; text-overflow: ellipsis;
+                font-size: 1.5rem; color: #a0a0a0;
             }
         }
     }
     .contentInfoWrap{
-        border-top: 1px solid #ddd; padding-top: 1rem;
-        width: 100%; display: flex; justify-content: space-between; align-items: center;
-        box-sizing: border-box;
+        padding-top: 1rem; box-sizing: border-box;
+        display: flex; justify-content: space-between; align-items: center;
+        width: 100%; 
+        border-top: 1px solid #ddd; 
         .dateWrap{
             span{
                 margin-right: .5rem;
@@ -64,7 +71,8 @@ body.dark{
         }
         button{
             margin: 0 .3rem;
-            font-size: 2.5rem; transition: all .5s;
+            font-size: 2.5rem; 
+            transition: all .5s;
             &:nth-child(1):hover{
                 color: #1d9bf0;
             }
@@ -78,8 +86,8 @@ body.dark{
 
 @media all and (max-width: 550px) {
     .noteItem{
-        width: 95%; margin: 0 auto 1rem;
-        box-sizing: border-box;
+        margin: 0 auto 1rem; box-sizing: border-box;
+        width: 95%; 
         .contentWrap{
             &Title{
                 font-size: 1.8rem;
