@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" :style="isAuth ? backgroundImageInlineStyle : ''">
         <NoteHeader v-if="isHeader" />
         <RouterView :key="$route.path" />
         <NoteLoading />
@@ -30,6 +30,10 @@ export default defineComponent({
             return route.meta.header;
         });
 
+        const isAuth = computed(() => {
+            return route.meta.auth;
+        });
+
         const setScreenSize = () => {
             const vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -53,6 +57,7 @@ export default defineComponent({
 
         return {
             isHeader,
+            isAuth,
             backgroundImageInlineStyle,
             offLoading,
             status,

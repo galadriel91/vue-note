@@ -9,7 +9,10 @@
                     placeholder="이메일"
                     v-model="email"
                     @focus="onClickFocus"
-                    :class="{ valid: isValid }"
+                    :class="{
+                        valid: isValid === true,
+                        error: isValid === false && email.length,
+                    }"
                 />
             </div>
             <div>
@@ -18,7 +21,11 @@
                     type="password"
                     placeholder="비밀번호"
                     v-model="password"
-                    :class="{ valid: password.length >= 6 }"
+                    minlength="6"
+                    :class="{
+                        valid: password.length >= 6,
+                        error: password.length < 6 && password.length,
+                    }"
                 />
             </div>
             <button type="submit">로그인</button>
@@ -32,7 +39,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, type ComputedRef } from 'vue';
+import type { ComputedRef } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useUser } from '@/store/userStore';
 import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
@@ -51,6 +59,7 @@ export default defineComponent({
 
         // Submit시 조건 정의
         const isCheck = ref(true);
+
         const isValid: ComputedRef<boolean> = computed(() => {
             if (email.value === '') {
                 return false;

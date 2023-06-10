@@ -1,6 +1,6 @@
 .formContainer{
     text-align: center;
-    padding: 7rem 5rem; 
+    padding: 6rem 5rem; 
     background: #fff;
     border: 1px solid #ddd; 
     h2{
@@ -42,6 +42,9 @@
                 &.valid{
                     border: 1px solid #1d9bf0;
                 }
+                &.error{
+                    border: 1px solid rgb(255, 18, 65); 
+                }
             }
         }
         button{
@@ -49,7 +52,7 @@
         }
     }
     .handleError{
-        margin: 1rem 0; 
+        margin: 2rem 0 1.5rem; 
         font-size: 1.4rem; font-weight: bold; color: rgb(255, 18, 65); 
     }
     .btnWrap{

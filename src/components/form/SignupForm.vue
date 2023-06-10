@@ -8,7 +8,10 @@
                     type="text"
                     placeholder="이메일"
                     v-model="email"
-                    :class="{ valid: isValid }"
+                    :class="{
+                        valid: isValid,
+                        error: isValid === false && email.length,
+                    }"
                     @focus="onClickFocus"
                 />
             </div>
@@ -18,7 +21,10 @@
                     type="password"
                     placeholder="비밀번호"
                     v-model="password"
-                    :class="{ valid: password.length >= 6 }"
+                    :class="{
+                        valid: password.length >= 6,
+                        error: password.length < 6 && password.length,
+                    }"
                 />
             </div>
             <div>
@@ -27,8 +33,12 @@
                     type="text"
                     placeholder="닉네임"
                     v-model="nickname"
-                    :maxlength="6"
-                    :class="{ valid: nickname.length }"
+                    minlength="3"
+                    maxlength="8"
+                    :class="{
+                        valid: nickname.length >= 3,
+                        error: nickname.length < 3 && nickname.length,
+                    }"
                 />
             </div>
             <button type="submit">회원가입</button>
@@ -46,20 +56,16 @@ import { defineComponent, ref, computed, type ComputedRef } from 'vue';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
 import { useValid } from '@/composables/useValid';
-import { useCommon } from '@/store/commonStore';
 
 export default defineComponent({
     setup() {
-        const common = useCommon();
         const user = useUser();
         const { isError } = storeToRefs(user);
         const { FETCH_SIGNUP } = user;
-        const { OFF_LOADING } = common;
+
         const email = ref('');
         const password = ref('');
         const nickname = ref('');
-
-        OFF_LOADING();
 
         const isCheck = ref(true);
         const isValid: ComputedRef<boolean> = computed(() => {
@@ -102,10 +108,6 @@ export default defineComponent({
             }
         };
 
-        const offLoading = () => {
-            OFF_LOADING();
-        };
-
         return {
             email,
             password,
@@ -114,7 +116,6 @@ export default defineComponent({
             isValid,
             isError,
             onClickFocus,
-            offLoading,
         };
     },
 });
