@@ -17,12 +17,6 @@ export default [
         },
     },
     {
-        path: '/',
-        redirect: () => {
-            return '/intro';
-        },
-    },
-    {
         path: '/login',
         name: 'login',
         component: () => import('@/pages/LoginPage.vue'),
