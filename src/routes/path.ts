@@ -26,6 +26,7 @@ export default [
     {
         path: '/signup',
         name: 'signup',
+        beforeEnter: getLoading(),
         component: () => import('@/pages/SignupPage.vue'),
         meta: { title: 'SignUp', header: false, isLogin: true },
     },

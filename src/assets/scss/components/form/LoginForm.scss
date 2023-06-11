@@ -99,3 +99,9 @@ body.dark{
         }
     }
 }
+
+@media all and (max-width: 450px) {
+    .formContainer{
+        padding: 4.5rem 2.5rem;
+    }
+}
