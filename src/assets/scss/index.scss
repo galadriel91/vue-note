@@ -12,6 +12,7 @@ html{
 }
 
 body{
+    font-display: block;
     font-family: 'ChosunGu'; font-size: 1rem;
     box-sizing: border-box; 
 }
@@ -22,7 +23,7 @@ textarea, input{
 
 .container{
     display: flex; justify-content: center; align-items: center; flex-direction: column;
-    min-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     background-attachment: fixed;
 }
 
