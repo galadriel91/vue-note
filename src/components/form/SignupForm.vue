@@ -21,6 +21,7 @@
                     type="password"
                     placeholder="비밀번호"
                     v-model="password"
+                    minlength="6"
                     :class="{
                         valid: password.length >= 6,
                         error: password.length < 6 && password.length,
@@ -52,7 +53,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, type ComputedRef } from 'vue';
+import {
+    defineComponent,
+    ref,
+    computed,
+    type ComputedRef,
+    onUnmounted,
+} from 'vue';
 import { useUser } from '@/store/userStore';
 import { storeToRefs } from 'pinia';
 import { useValid } from '@/composables/useValid';
@@ -107,6 +114,10 @@ export default defineComponent({
                 isError.value = '';
             }
         };
+
+        onUnmounted(() => {
+            isError.value = '';
+        });
 
         return {
             email,

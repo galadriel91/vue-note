@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import type { ComputedRef } from 'vue';
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, ref, computed, onUnmounted } from 'vue';
 import { useUser } from '@/store/userStore';
 import { useCommon } from '@/store/commonStore';
 import { storeToRefs } from 'pinia';
@@ -101,6 +101,10 @@ export default defineComponent({
         const offLoading = () => {
             OFF_LOADING();
         };
+
+        onUnmounted(() => {
+            isError.value = '';
+        });
 
         return {
             email,

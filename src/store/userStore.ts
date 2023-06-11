@@ -28,10 +28,10 @@ export const useUser = defineStore('user', {
                 });
             } catch (err: any) {
                 OFF_LOADING();
+                console.log(err.response);
                 if (err.response) {
                     if (err.response.status === 409) {
-                        this.isError =
-                            '이메일이 존재하여 회원 가입이 실패했습니다';
+                        this.isError = '이미 존재하는 이메일 입니다.';
                     } else {
                         this.isError =
                             '서버에 문제가 있어 회원가입하지 못했습니다.';
@@ -56,12 +56,16 @@ export const useUser = defineStore('user', {
             } catch (err: any) {
                 OFF_LOADING();
                 if (err.response) {
-                    if (err.response.status === 401) {
-                        this.isError =
-                            '이메일이나 비밀번호를 다시 확인해주세요';
-                    } else {
-                        this.isError =
-                            '서버에 문제가 있어 로그인하지 못했습니다.';
+                    if (
+                        err.response.data ===
+                        'Authentication failed. Wrong password.'
+                    ) {
+                        this.isError = '비밀번호를 다시 확인해주세요';
+                    } else if (
+                        err.response.data ===
+                        'Authentication failed. User not found.'
+                    ) {
+                        this.isError = '아이디를 다시 한번 확인해주세요.';
                     }
                 } else {
                     this.isError = '서버에 문제가 있어 로그인하지 못했습니다.';
