@@ -13,7 +13,6 @@ export default defineComponent({
     },
     setup() {
         useLoading();
-        return {};
     },
 });
 </script>

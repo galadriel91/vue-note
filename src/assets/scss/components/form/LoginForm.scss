@@ -1,3 +1,31 @@
+body.dark{
+    .formContainer{
+        background: #222;
+        h2{
+            color: #F2F3F5;
+        }
+        form{
+            div{
+                i{
+                    color: #F2F3F5;
+                }
+                input{
+                    background: #222;
+                    color: #F2F3F5;
+                    &::placeholder{
+                        color: #f2f3f5;
+                    }
+                }
+            }
+        }
+        .btnWrap{
+            span{
+                color: #F2F3F5;
+            }
+        }
+    }
+}
+
 .formContainer{
     text-align: center;
     padding: 6rem 5rem; 
@@ -20,7 +48,7 @@
             position: relative;
             i{
                 position: absolute; top: 50%; left: 2rem;
-                font-size: 2rem; color: #000; 
+                font-size: 2rem; color: #222; 
                 transform: translateY(-50%);
             }
             input{
@@ -30,7 +58,7 @@
                 text-indent: 5rem; 
                 font-size: 1.4rem; font-weight: normal; color: #222;
                 &::placeholder{
-                    color: #000;
+                    color: #222;
                 }
                 &.valid{
                     border: 1px solid #1d9bf0

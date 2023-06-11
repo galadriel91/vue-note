@@ -33,21 +33,21 @@ body.dark{
             display: inline-block; vertical-align: top;
             background: none; 
             width: 1.5rem;
-            font-size: 1.8rem; color: #000; 
+            font-size: 1.8rem; color: #222; 
             &::placeholder{
-                color: #000;
+                color: #222;
             }
         }
         span{
             &:nth-of-type(1){
                 margin-right: .7rem;
             }
-            font-size: 1.8rem; color: #000;
+            font-size: 1.8rem; color: #222;
         }
         button{
             background: none; 
             line-height: 5rem;
-            color: #000; 
+            color: #222; 
             cursor: pointer; 
             &.active{
                 color: #999; 

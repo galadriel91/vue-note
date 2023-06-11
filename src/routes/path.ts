@@ -23,13 +23,6 @@ export default [
         },
     },
     {
-        path: '/intro',
-        name: 'intro',
-        component: () => import('@/pages/IntroPage.vue'),
-        beforeEnter: getPage(),
-        meta: { title: 'Intro' },
-    },
-    {
         path: '/login',
         name: 'login',
         component: () => import('@/pages/LoginPage.vue'),
