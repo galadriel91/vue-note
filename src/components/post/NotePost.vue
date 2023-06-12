@@ -25,13 +25,15 @@
                 <button class="pcBtn" @click="onClickRemove">삭제</button>
                 <button
                     class="material-symbols-outlined moBtn"
-                    type="button"
-                    @click="onClickMain"
+                    @click="onClickRemove"
                 >
                     disabled_by_default
                 </button>
                 <button class="pcBtn" @click="onClickEdit">수정</button>
-                <button class="material-symbols-outlined moBtn" type="submit">
+                <button
+                    class="material-symbols-outlined moBtn"
+                    @click="onClickEdit"
+                >
                     check_box
                 </button>
             </div>
