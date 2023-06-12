@@ -58,17 +58,16 @@ export const usePost = defineStore('items', {
             try {
                 await addNote(note);
             } catch (err: any) {
-                console.log(err);
                 if (err.response) {
                     if (err.response.status === 400) {
-                        this.isError = '같은 이름의 게시물이 이미 존재합니다';
+                        this.isError = '같은 이름의 노트가 이미 존재합니다';
                     } else {
                         this.isError =
-                            '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                            '서버에 문제가 있어 노트를 생성하지 못했습니다';
                     }
                 } else {
                     this.isError =
-                        '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                        '서버에 문제가 있어 노트를 생성하지 못했습니다';
                 }
             }
         },
@@ -80,17 +79,16 @@ export const usePost = defineStore('items', {
             try {
                 await updateEditItem(info);
             } catch (err: any) {
-                console.log(err);
                 if (err.response) {
                     if (err.response.status === 400) {
-                        this.isError = '같은 이름의 게시물이 이미 존재합니다';
+                        this.isError = '같은 이름의 노트가 이미 존재합니다';
                     } else {
                         this.isError =
-                            '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                            '서버에 문제가 있어 노트를 생성하지 못했습니다';
                     }
                 } else {
                     this.isError =
-                        '서버에 문제가 있어 게시물을 생성하지 못했습니다';
+                        '서버에 문제가 있어 노트를 생성하지 못했습니다';
                 }
             }
         },

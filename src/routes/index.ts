@@ -29,7 +29,6 @@ router.beforeEach(to => {
     const { token } = storeToRefs(user);
     initDark();
     if (to.meta.auth && !token.value) {
-        console.log('로그인이 필요합니다');
         return '/login';
     }
     if (to.meta.isLogin && token.value) {

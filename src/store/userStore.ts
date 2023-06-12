@@ -28,7 +28,6 @@ export const useUser = defineStore('user', {
                 });
             } catch (err: any) {
                 OFF_LOADING();
-                console.log(err.response);
                 if (err.response) {
                     if (err.response.status === 409) {
                         this.isError = '이미 존재하는 이메일 입니다.';
